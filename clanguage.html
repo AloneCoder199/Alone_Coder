@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Language Learning</title>
+    <link rel="stylesheet" href="clanguage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Logo"></a>
+        </div>
+        <ul class="nav-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html"> About </a></li>
+            <li><a href="contect.html">Contact</a></li>
+            <li><a href="Books.html">Books</a></li>
+            <li><a href="cplus.html">C++</a></li>
+            <li><a href="clanguage.html">C</a></li>
+            <li><a href="javascript.html">J/S </a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="game.html">Programming Games</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html"> About </a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Books.html">Books</a></li>
+                <li><a href="cplus.html">C++</a></li>
+                <li><a href="clanguage.html">C</a></li>
+                <li><a href="javascript.html">J/S </a></li>
+                <li><a href="sql.html">SQL</a></li>
+                <li><a href="game.html">Programming Games</a></li>
+            </ul>
+        </div>
+    </nav>
+
+   
+    <main>
+        <h1   style="text-align: center;">C Programming Guide</h1>
+        <h3  id="h3">BY: MUHAMMAD BILAL</h3>
+        <section id="beginner" class="section">
+            <div class="container">
+                <h2>Beginner Topics</h2>
+                
+                <div class="topic">
+                    <h3>Introduction to C</h3>
+                    <p><strong>Definition:</strong> C is a general-purpose programming language that is extremely popular, simple, and flexible. It is a machine-independent, structured programming language used extensively in various applications.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Hello World Program */
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!");
+    return 0;
+}</code></pre>
+                    <p><strong>Explanation:</strong> This program includes the standard input-output library, defines the main function, prints "Hello, World!" to the console, and returns 0, indicating successful execution.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Overview of C</h3>
+                    <p><strong>Definition:</strong> C is known for its efficiency and control, making it a go-to for system programming and embedded systems.</p>
+                    <p><strong>Explanation:</strong> C allows low-level access to memory and provides language constructs that map efficiently to machine instructions.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>History of C</h3>
+                    <p><strong>Definition:</strong> C was developed in the early 1970s by Dennis Ritchie at Bell Labs. It was designed to be a successor to the B language.</p>
+                    <p><strong>Explanation:</strong> C was created to overcome the limitations of the B language and to improve programming productivity and performance.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Features of C</h3>
+                    <p><strong>Definition:</strong> C is known for its simplicity, flexibility, efficiency, and rich library support.</p>
+                    <p><strong>Explanation:</strong> Features include portability, low-level access to memory, a rich set of operators, and an extensive set of library functions.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Basic Syntax</h3>
+                    <p><strong>Definition:</strong> The syntax of C is the set of rules defining how a C program is written and interpreted.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Basic Syntax */
+#include &lt;stdio.h&gt;
+
+int main() {
+    // code here
+    return 0;
+}</code></pre>
+                    <p><strong>Explanation:</strong> The basic syntax includes header files, the main function, and other necessary elements to write a functional C program.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Structure of a C Program</h3>
+                    <p><strong>Definition:</strong> A C program typically consists of functions and variables. The basic structure includes the header files, main function, and other user-defined functions.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Basic Structure */
+#include &lt;stdio.h&gt;
+
+int main() {
+    // code here
+    return 0;
+}</code></pre>
+                    <p><strong>Explanation:</strong> The structure of a C program includes essential components like preprocessor commands, functions, and variables.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Writing and Compiling a Simple C Program</h3>
+                    <p><strong>Definition:</strong> Writing a C program involves creating a source file with a .c extension, compiling it using a compiler, and then executing the output.</p>
+                    <p><strong>Explanation:</strong> A C program is written in a text editor, saved with a .c extension, compiled with a C compiler, and executed to see the results.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Data Types and Variables</h3>
+                    <p><strong>Definition:</strong> Data types in C define the type of data that a variable can hold. Common data types include int, float, char, and double.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Variable Declaration */
+int a = 10;
+float b = 5.5;
+char c = 'A';</code></pre>
+                    <p><strong>Explanation:</strong> Variables are declared with a specific data type and can store values of that type. For example, 'int' for integers, 'float' for floating-point numbers, and 'char' for characters.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Operators</h3>
+                    <p><strong>Definition:</strong> Operators are symbols that perform operations on variables and values. Examples include arithmetic, relational, and logical operators.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Arithmetic Operators */
+int a = 10;
+int b = 5;
+int sum = a + b;
+int difference = a - b;</code></pre>
+                    <p><strong>Explanation:</strong> Operators like +, -, *, / are used to perform arithmetic operations on variables. Relational operators like >, < are used to compare values, and logical operators like &&, || are used to combine multiple conditions.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Control Statements</h3>
+                    <p><strong>Definition:</strong> Control statements direct the flow of a program. Common control statements include if-else, switch-case, and loops.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: If-Else Statement */
+int a = 10;
+if (a > 5) {
+    printf("a is greater than 5");
+} else {
+    printf("a is not greater than 5");
+}</code></pre>
+                    <p><strong>Explanation:</strong> Control statements like if-else are used to execute different blocks of code based on certain conditions. Switch-case is used for multiple condition checks, and loops like for, while, and do-while are used for repeated execution of code blocks.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Functions</h3>
+                    <p><strong>Definition:</strong> Functions are reusable blocks of code that perform specific tasks. Functions can accept parameters and return values.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Function Definition */
+#include &lt;stdio.h&gt;
+
+void greet() {
+    printf("Hello, World!");
+}
+
+int main() {
+    greet();
+    return 0;
+}</code></pre>
+                    <p><strong>Explanation:</strong> Functions are defined using a return type, function name, and parameters (if any). They are called to perform specific tasks within a program, reducing code redundancy and improving readability.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Arrays</h3>
+                    <p><strong>Definition:</strong> Arrays are collections of elements of the same type stored in contiguous memory locations.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Array Declaration */
+int arr[5] = {1, 2, 3, 4, 5};</code></pre>
+                    <p><strong>Explanation:</strong> Arrays are used to store multiple values of the same type in a single variable. Each element in the array can be accessed using its index.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Strings</h3>
+                    <p><strong>Definition:</strong> Strings in C are arrays of characters terminated by a null character ('\0').</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: String Declaration */
+char str[20] = "Hello, World!";</code></pre>
+                    <p><strong>Explanation:</strong> Strings are used to store sequences of characters. String handling functions like strlen, strcpy, strcat, strcmp are used to manipulate strings.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="intermediate" class="section">
+            <div class="container">
+                <h2>Intermediate Topics</h2>
+                
+                <div class="topic">
+                    <h3>Pointers</h3>
+                    <p><strong>Definition:</strong> Pointers are variables that store the address of other variables. They provide a way to manipulate memory directly.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Pointer Declaration */
+int a = 10;
+int *p = &a;</code></pre>
+                    <p><strong>Explanation:</strong> Pointers are declared using the * symbol and can be used to access and modify the value stored at a specific memory address.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Structures and Unions</h3>
+                    <p><strong>Definition:</strong> Structures are user-defined data types that group related variables of different data types. Unions are similar to structures but store different data types in the same memory location.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Structure Declaration */
+struct Person {
+    char name[50];
+    int age;
+    float salary;
+};
+
+struct Person person1;</code></pre>
+                    <p><strong>Explanation:</strong> Structures are defined using the struct keyword and can group different types of data under a single name. Unions use the same syntax but share memory among their members.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Dynamic Memory Allocation</h3>
+                    <p><strong>Definition:</strong> Dynamic memory allocation allows the allocation of memory at runtime using functions like malloc, calloc, realloc, and free.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Dynamic Memory Allocation */
+int *ptr = (int*)malloc(5 * sizeof(int));</code></pre>
+                    <p><strong>Explanation:</strong> Functions like malloc and calloc allocate memory dynamically, while realloc adjusts the size of previously allocated memory and free deallocates memory.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>File Handling</h3>
+                    <p><strong>Definition:</strong> File handling in C involves creating, opening, reading, writing, and closing files using standard library functions.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: File Handling */
+FILE *file = fopen("example.txt", "r");
+fclose(file);</code></pre>
+                    <p><strong>Explanation:</strong> Functions like fopen, fclose, fread, fwrite, fprintf, fscanf are used to perform various file operations.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Preprocessors</h3>
+                    <p><strong>Definition:</strong> Preprocessor directives in C are commands that are executed before the actual compilation of code begins. They are used for macro definitions, file inclusion, and conditional compilation.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Preprocessor Directive */
+#define PI 3.14</code></pre>
+                    <p><strong>Explanation:</strong> Preprocessor directives start with the # symbol and perform various tasks before compilation, like defining constants and including header files.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Command Line Arguments</h3>
+                    <p><strong>Definition:</strong> Command line arguments are parameters passed to the main function when a program is executed from the command line. They provide a way to pass information to the program at runtime.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Command Line Arguments */
+int main(int argc, char *argv[]) {
+    printf("Argument count: %d", argc);
+    return 0;
+}</code></pre>
+                    <p><strong>Explanation:</strong> The main function can accept command line arguments through parameters argc (argument count) and argv (argument vector), which allow the program to process input arguments.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="section">
+            <div class="container">
+                <h2>Advanced Topics </h2>
+                
+                <div class="topic">
+                    <h3>Advanced Pointers</h3>
+                    <p><strong>Definition:</strong> Advanced pointer concepts include pointer to pointer, function pointers, and pointers to functions. They provide more control and flexibility in manipulating memory and functions.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Pointer to Pointer */
+int a = 10;
+int *p = &a;
+int **pp = &p;</code></pre>
+                    <p><strong>Explanation:</strong> Advanced pointers allow for more complex operations, such as multi-level indirection and dynamic function calls.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Data Structures</h3>
+                    <p><strong>Definition:</strong> Data structures like linked lists, stacks, queues, trees, and graphs are used to organize and store data efficiently.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Linked List */
+struct Node {
+    int data;
+    struct Node *next;
+};</code></pre>
+                    <p><strong>Explanation:</strong> Data structures provide efficient ways to manage and manipulate data. Linked lists use nodes to store data and pointers to the next node, forming a chain of elements.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Advanced File Handling</h3>
+                    <p><strong>Definition:</strong> Advanced file handling includes concepts like file locking, random access in files, and error handling.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Random Access in Files */
+fseek(file, 0, SEEK_SET);</code></pre>
+                    <p><strong>Explanation:</strong> Advanced file handling techniques allow for more control over file operations, such as locking files to prevent simultaneous access and seeking specific positions in a file for read/write operations.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Error Handling</h3>
+                    <p><strong>Definition:</strong> Error handling in C involves using error codes and functions like errno, perror, and strerror to detect and manage errors in programs.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Error Handling */
+if (file == NULL) {
+    perror("Error opening file");
+}</code></pre>
+                    <p><strong>Explanation:</strong> Error handling functions provide mechanisms to identify, report, and manage errors that occur during program execution, improving robustness and reliability.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Concurrency</h3>
+                    <p><strong>Definition:</strong> Concurrency in C involves creating and managing multiple threads of execution using POSIX threads (pthreads) to perform parallel processing.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Multithreading */
+#include &lt;pthread.h&gt;
+
+void *threadFunction(void *arg) {
+    // code here
+    return NULL;
+}
+
+int main() {
+    pthread_t thread;
+    pthread_create(&thread, NULL, threadFunction, NULL);
+    pthread_join(thread, NULL);
+    return 0;
+}</code></pre>
+                    <p><strong>Explanation:</strong> Concurrency allows a program to perform multiple tasks simultaneously by creating and managing threads, improving efficiency and responsiveness.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Networking</h3>
+                    <p><strong>Definition:</strong> Networking in C involves socket programming to enable communication between systems over a network.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Socket Programming */
+#include &lt;sys/socket.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+
+int main() {
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in server_addr;
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(8080);
+    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    connect(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr));
+    /* code here */
+    close(sockfd);
+    return 0;
+}</code></pre>
+                    <p><strong>Explanation:</strong> Socket programming enables network communication between different systems, using functions to create, connect, and manage sockets for data exchange.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Interfacing with Assembly Language</h3>
+                    <p><strong>Definition:</strong> Interfacing C with assembly language allows the integration of low-level code within a C program for performance-critical tasks.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>/* Example: Inline Assembly */
+int main() {
+    int result;
+    asm("movl $5, %%eax;"
+        "movl $3, %%ebx;"
+        "addl %%ebx, %%eax;"
+        "movl %%eax, %0;"
+        : "=r" (result));
+    return 0;
+}</code></pre>
+                    <p><strong>Explanation:</strong> Inline assembly allows the execution of assembly instructions within a C program, providing finer control over hardware and performance optimization.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+  
+
+
+
+
+             <footer class="footer">
+        <div class="footer-links">
+            <ul>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="tearm.html">Terms of Service</a></li>
+                <li><a href="privecy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="contact-info">
+            <p>📞 Mobile: +923219515138</p>
+            <p>✉️ Email: contact@aloncoder385.com</p>
+            <p>🌍 Address: 140 sardar kote ,Samandri , Fasilabad </p>
+        </div>
+        <div class="social-media">
+            <a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/@Alon_coder" title="Youtube" target="_blank"><i class="fab fa-youtube-in"></i></a>
+            <a href="#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p style="text-align: center; font-weight: 600;">&copy; 2024 Alone_Coder. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+</body>
+<script>
+
+document.getElementById('mobile-menu').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.getElementById('mobile-nav').classList.toggle('active');
+});
+
+
+</script>
+</html>

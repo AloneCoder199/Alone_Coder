@@ -1,0 +1,40 @@
+.skills-section {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.skills-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill p {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #eee;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.progress {
+  background-color: #4caf50; /* Green color */
+  height: 100%;
+  text-align: center;
+  color: white;
+  line-height: 20px; /* Center text vertically */
+  transition: width 1s ease-out; /* Add transition for smooth animation */
+  width: 0; /* Initial width */
+}

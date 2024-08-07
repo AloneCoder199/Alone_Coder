@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Programming Guide</title>
+    <link rel="stylesheet" href="cpp.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+
+
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Logo"></a>
+        </div>
+        <ul class="nav-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html"> About </a></li>
+            <li><a href="contect.html">Contact</a></li>
+            <li><a href="Books.html">Books</a></li>
+            <li><a href="cplus.html">C++</a></li>
+            <li><a href="clanguage.html">C</a></li>
+            <li><a href="javascript.html">J/S </a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="game.html">Programming Games</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html"> About </a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Books.html">Books</a></li>
+                <li><a href="cplus.html">C++</a></li>
+                <li><a href="clanguage.html">C</a></li>
+                <li><a href="javascript.html">J/S </a></li>
+                <li><a href="sql.html">SQL</a></li>
+                <li><a href="game.html">Programming Games</a></li>
+            </ul>
+        </div>
+    </nav>
+
+   
+
+
+    <div class="container">
+        <h1>C++ Programming Guide</h1>
+        <h3>BY: MUHAMMAD BILAL</h3>
+
+        <!-- Introduction -->
+        <div class="section">
+            <h2>Introduction to C++</h2>
+            <p>C++ is a powerful, versatile programming language that extends the C language by adding object-oriented features. It is widely used in software development, game programming, and systems programming.</p>
+        </div>
+
+        <!-- Beginner Level -->
+        <div class="section">
+            <h2>Beginner Level</h2>
+
+            <h3>Introduction to C++</h3>
+            <p>C++ is an extension of the C programming language that includes object-oriented features. It's a popular choice for system/software development and competitive programming.</p>
+
+            <h3>History of C++</h3>
+            <p>C++ was developed by Bjarne Stroustrup at Bell Labs in the early 1980s as an enhancement to C. It added object-oriented programming features to the existing C language.</p>
+
+            <h3>Features of C++</h3>
+            <ul>
+                <li>Object-Oriented Programming</li>
+                <li>Memory Management</li>
+                <li>Multiple Inheritance</li>
+                <li>Function Overloading</li>
+            </ul>
+
+            <h3>Writing the First C++ Program</h3>
+            <p>The basic structure of a C++ program includes headers, the main function, and statements. Here's a simple example:</p>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Basic Syntax</h3>
+            <ul>
+                <li><strong>Data Types:</strong> int, float, double, char, bool</li>
+                <li><strong>Variables:</strong> Declaration and Initialization</li>
+                <li><strong>Constants:</strong> Use of const keyword</li>
+            </ul>
+
+            <h3>Data Types and Variables</h3>
+            <ul>
+                <li><strong>Primitive data types:</strong> int, float, double, char, bool</li>
+                <li><strong>Variable declarations:</strong> Syntax for declaring variables</li>
+                <li><strong>Constants:</strong> Defining constant values with const</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int age = 25;
+    float height = 5.9;
+    const char *name = "John Doe";
+
+    std::cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Age: " &lt;&lt; age &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Height: " &lt;&lt; height &lt;&lt; std::endl;
+
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Operators</h3>
+            <ul>
+                <li><strong>Arithmetic operators:</strong> +, -, *, /, %</li>
+                <li><strong>Relational operators:</strong> ==, !=, &gt;, &lt;, &gt;=, &lt;=</li>
+                <li><strong>Logical operators:</strong> &&, ||, !</li>
+                <li><strong>Bitwise operators:</strong> &, |, ^, ~, <<, >></li>
+                <li><strong>Assignment operators:</strong> =, +=, -=, *=, /=</li>
+                <li><strong>Increment and decrement operators:</strong> ++, --</li>
+                <li><strong>Conditional (ternary) operator:</strong> ?:</li>
+            </ul>
+
+            <h3>Control Structures</h3>
+            <ul>
+                <li><strong>Conditional statements:</strong> if, if-else, switch-case</li>
+                <li><strong>Loops:</strong> for, while, do-while</li>
+                <li><strong>Break and continue statements:</strong> Using break and continue in loops</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int i;
+    for (i = 0; i &lt; 5; ++i) {
+        if (i % 2 == 0) {
+            std::cout &lt;&lt; i &lt;&lt; " is even" &lt;&lt; std::endl;
+        } else {
+            std::cout &lt;&lt; i &lt;&lt; " is odd" &lt;&lt; std::endl;
+        }
+    }
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Functions</h3>
+            <ul>
+                <li><strong>Function declaration and definition:</strong> Syntax for defining functions</li>
+                <li><strong>Function calling:</strong> How to call functions</li>
+                <li><strong>Return types and void functions:</strong> Function return types</li>
+                <li><strong>Function parameters:</strong> Pass by value and reference</li>
+                <li><strong>Inline functions:</strong> Definition and usage</li>
+                <li><strong>Function overloading:</strong> Multiple functions with the same name</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(5, 3);
+    std::cout &lt;&lt; "Sum: " &lt;&lt; result &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Arrays and Strings</h3>
+            <ul>
+                <li><strong>One-dimensional arrays:</strong> Basics and manipulation</li>
+                <li><strong>Multi-dimensional arrays:</strong> Declaration and usage</li>
+                <li><strong>Array manipulation:</strong> Sorting and searching arrays</li>
+                <li><strong>String handling:</strong> Basic string operations</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    for (int i = 0; i &lt; 5; ++i) {
+        std::cout &lt;&lt; arr[i] &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Pointers</h3>
+            <ul>
+                <li><strong>Pointer basics:</strong> Declaration and usage</li>
+                <li><strong>Pointer arithmetic:</strong> Arithmetic operations on pointers</li>
+                <li><strong>Pointers and arrays:</strong> Relationship between pointers and arrays</li>
+                <li><strong>Pointers to pointers:</strong> Using double pointers</li>
+                <li><strong>Dynamic memory allocation:</strong> Using new and delete</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int *ptr = new int(10);
+    std::cout &lt;&lt; "Value: " &lt;&lt; *ptr &lt;&lt; std::endl;
+    delete ptr;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>References</h3>
+            <ul>
+                <li><strong>Reference variables:</strong> Declaration and usage</li>
+                <li><strong>Passing by reference:</strong> How to pass variables by reference</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+void increment(int &value) {
+    value++;
+}
+
+int main() {
+    int num = 5;
+    increment(num);
+    std::cout &lt;&lt; "Incremented value: " &lt;&lt; num &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <!-- Intermediate Level -->
+        <div class="section">
+            <h2>Intermediate Level</h2>
+
+            <h3>Object-Oriented Programming (OOP)</h3>
+            <p>OOP allows developers to model real-world entities using classes and objects, providing a way to organize and manage code more efficiently.</p>
+            <ul>
+                <li><strong>Classes and objects:</strong> Basics of creating and using classes and objects</li>
+                <li><strong>Access specifiers:</strong> public, private, protected</li>
+                <li><strong>Constructors and destructors:</strong> Special functions for initialization and cleanup</li>
+                <li><strong>Member functions:</strong> Functions that operate on class members</li>
+                <li><strong>Static members:</strong> Class members that are shared among all instances</li>
+                <li><strong>This pointer:</strong> A pointer to the current object</li>
+                <li><strong>Friend functions and classes:</strong> Functions or classes that can access private members</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+class Rectangle {
+public:
+    int width, height;
+
+    Rectangle(int w, int h) : width(w), height(h) {}
+
+    int area() {
+        return width * height;
+    }
+};
+
+int main() {
+    Rectangle rect(10, 5);
+    std::cout &lt;&lt; "Area: " &lt;&lt; rect.area() &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Inheritance</h3>
+            <p>Inheritance allows one class (derived class) to inherit properties and methods from another class (base class).</p>
+            <ul>
+                <li><strong>Base and derived classes:</strong> Basic inheritance model</li>
+                <li><strong>Types of inheritance:</strong> Single, multiple, multilevel, hierarchical, hybrid</li>
+                <li><strong>Constructor and destructor in inheritance:</strong> Handling constructors and destructors in derived classes</li>
+                <li><strong>Function overriding:</strong> Redefining base class methods in derived classes</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+class Base {
+public:
+    void show() {
+        std::cout &lt;&lt; "Base class" &lt;&lt; std::endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void show() {
+        std::cout &lt;&lt; "Derived class" &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Derived obj;
+    obj.show();
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Polymorphism</h3>
+            <p>Polymorphism allows objects to be treated as instances of their base class rather than their actual class, enabling method overriding.</p>
+            <ul>
+                <li><strong>Function overloading:</strong> Multiple functions with the same name but different parameters</li>
+                <li><strong>Operator overloading:</strong> Customizing the behavior of operators</li>
+                <li><strong>Virtual functions:</strong> Functions that can be overridden in derived classes</li>
+                <li><strong>Pure virtual functions and abstract classes:</strong> Defining abstract base classes</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+class Base {
+public:
+    virtual void show() {
+        std::cout &lt;&lt; "Base class" &lt;&lt; std::endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void show() override {
+        std::cout &lt;&lt; "Derived class" &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Base *basePtr;
+    Derived derivedObj;
+    basePtr = &derivedObj;
+    basePtr-&gt;show();
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Templates</h3>
+            <p>Templates enable writing generic and reusable code by allowing functions and classes to operate with different data types.</p>
+            <ul>
+                <li><strong>Function templates:</strong> Defining generic functions</li>
+                <li><strong>Class templates:</strong> Defining generic classes</li>
+                <li><strong>Template specialization:</strong> Customizing template behavior for specific types</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+template &lt;typename T&gt;
+T max(T a, T b) {
+    return (a &gt; b) ? a : b;
+}
+
+int main() {
+    std::cout &lt;&lt; max(10, 20) &lt;&lt; std::endl;
+    std::cout &lt;&lt; max(10.5, 5.5) &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Exception Handling</h3>
+            <p>Exception handling provides a way to manage errors and exceptional situations in a controlled manner using try, catch, and throw statements.</p>
+            <ul>
+                <li><strong>Try, catch, and throw statements:</strong> Syntax and usage</li>
+                <li><strong>Standard exceptions:</strong> Built-in exception classes</li>
+                <li><strong>Custom exceptions:</strong> Defining and using custom exception classes</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+int divide(int a, int b) {
+    if (b == 0) throw std::invalid_argument("Division by zero");
+    return a / b;
+}
+
+int main() {
+    try {
+        std::cout &lt;&lt; divide(10, 2) &lt;&lt; std::endl;
+        std::cout &lt;&lt; divide(10, 0) &lt;&lt; std::endl;
+    } catch (const std::invalid_argument &e) {
+        std::cerr &lt;&lt; "Error: " &lt;&lt; e.what() &lt;&lt; std::endl;
+    }
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Standard Template Library (STL)</h3>
+            <p>The STL provides a set of C++ template classes to support generic programming. It includes containers, iterators, algorithms, and functors.</p>
+            <ul>
+                <li><strong>Introduction to STL:</strong> Overview of STL components</li>
+                <li><strong>Containers:</strong> vector, list, deque, set, map, etc.</li>
+                <li><strong>Iterators:</strong> Traversing containers</li>
+                <li><strong>Algorithms:</strong> Functions for operations on containers</li>
+                <li><strong>Functors:</strong> Objects that can be called as functions</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main() {
+    std::vector&lt;int&gt; vec = {1, 2, 3, 4, 5};
+    for (auto &val : vec) {
+        std::cout &lt;&lt; val &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <!-- Advanced Level -->
+        <div class="section">
+            <h2>Advanced Level</h2>
+
+            <h3>Advanced Data Structures</h3>
+            <p>Advanced data structures are crucial for optimizing complex algorithms and managing large amounts of data efficiently.</p>
+            <ul>
+                <li><strong>Linked lists:</strong> Singly, doubly, circular linked lists</li>
+                <li><strong>Trees:</strong> Binary tree, binary search tree, AVL tree, etc.</li>
+                <li><strong>Graphs:</strong> Representation, traversal algorithms</li>
+                <li><strong>Heaps:</strong> Basics and operations</li>
+                <li><strong>Hash tables:</strong> Implementing and using hash tables</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+class Node {
+public:
+    int data;
+    Node *next;
+
+    Node(int val) : data(val), next(nullptr) {}
+};
+
+int main() {
+    Node *head = new Node(1);
+    head-&gt;next = new Node(2);
+
+    std::cout &lt;&lt; "Head data: " &lt;&lt; head-&gt;data &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Next node data: " &lt;&lt; head-&gt;next-&gt;data &lt;&lt; std::endl;
+
+    // Cleanup
+    delete head-&gt;next;
+    delete head;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Advanced Algorithms</h3>
+            <p>Advanced algorithms are used to solve complex problems efficiently, including sorting, searching, and optimization techniques.</p>
+            <ul>
+                <li><strong>Sorting algorithms:</strong> Quick sort, merge sort, heap sort, etc.</li>
+                <li><strong>Searching algorithms:</strong> Binary search, hash-based search</li>
+                <li><strong>Dynamic programming:</strong> Problem-solving approach for optimization</li>
+                <li><strong>Greedy algorithms:</strong> Algorithms that make locally optimal choices</li>
+                <li><strong>Backtracking:</strong> Algorithmic technique for solving problems incrementally</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+void quickSort(int arr[], int low, int high) {
+    if (low &lt; high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = (low - 1);
+
+    for (int j = low; j &lt; high; j++) {
+        if (arr[j] &lt;= pivot) {
+            i++;
+            std::swap(arr[i], arr[j]);
+        }
+    }
+    std::swap(arr[i + 1], arr[high]);
+    return (i + 1);
+}
+
+int main() {
+    int arr[] = {10, 7, 8, 9, 1, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    quickSort(arr, 0, n - 1);
+    std::cout &lt;&lt; "Sorted array: ";
+    for (int i = 0; i &lt; n; i++) {
+        std::cout &lt;&lt; arr[i] &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Multithreading and Concurrency</h3>
+            <p>Multithreading and concurrency involve executing multiple threads simultaneously to improve performance and resource utilization.</p>
+            <ul>
+                <li><strong>Thread creation and management:</strong> Creating and managing threads</li>
+                <li><strong>Synchronization:</strong> Using mutex, lock, condition variables</li>
+                <li><strong>Thread communication:</strong> Mechanisms for communication between threads</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+void printHello() {
+    std::cout &lt;&lt; "Hello from thread!" &lt;&lt; std::endl;
+}
+
+int main() {
+    std::thread t1(printHello);
+    t1.join();
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>File Handling</h3>
+            <p>File handling involves reading from and writing to files using file streams.</p>
+            <ul>
+                <li><strong>File streams:</strong> ifstream, ofstream, fstream</li>
+                <li><strong>Reading from and writing to files:</strong> Basic file operations</li>
+                <li><strong>Binary file operations:</strong> Working with binary files</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+int main() {
+    std::ofstream outFile("example.txt");
+    outFile &lt;&lt; "Hello, file!" &lt;&lt; std::endl;
+    outFile.close();
+
+    std::ifstream inFile("example.txt");
+    std::string line;
+    if (getline(inFile, line)) {
+        std::cout &lt;&lt; line &lt;&lt; std::endl;
+    }
+    inFile.close();
+
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Memory Management</h3>
+            <p>Memory management involves allocating and deallocating memory manually to optimize performance and resource usage.</p>
+            <ul>
+                <li><strong>Smart pointers:</strong> unique_ptr, shared_ptr, weak_ptr</li>
+                <li><strong>Custom memory allocators:</strong> Implementing custom allocation strategies</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+int main() {
+    std::unique_ptr&lt;int&gt; ptr(new int(10));
+    std::cout &lt;&lt; "Value: " &lt;&lt; *ptr &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>C++11/14/17/20 Features</h3>
+            <p>Modern C++ versions introduced new features and improvements to enhance performance and usability.</p>
+            <ul>
+                <li><strong>Lambda expressions:</strong> Anonymous functions</li>
+                <li><strong>Auto keyword:</strong> Automatic type deduction</li>
+                <li><strong>Range-based for loop:</strong> Simplified iteration</li>
+                <li><strong>nullptr:</strong> Null pointer constant</li>
+                <li><strong>Move semantics:</strong> Efficient object transfer</li>
+                <li><strong>Rvalue references:</strong> Managing temporary objects</li>
+                <li><strong>Concurrency features:</strong> std::thread, std::async, etc.</li>
+                <li><strong>Concepts (C++20):</strong> Constraints on template parameters</li>
+                <li><strong>Coroutines (C++20):</strong> Asynchronous programming</li>
+                <li><strong>Modules (C++20):</strong> Improved modularity</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+auto add = [](int a, int b) { return a + b; };
+
+int main() {
+    std::cout &lt;&lt; "Sum: " &lt;&lt; add(5, 3) &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Design Patterns</h3>
+            <p>Design patterns are reusable solutions to common problems in software design.</p>
+            <ul>
+                <li><strong>Creational patterns:</strong> Singleton, Factory, Abstract Factory, Builder, Prototype</li>
+                <li><strong>Structural patterns:</strong> Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy</li>
+                <li><strong>Behavioral patterns:</strong> Chain of Responsibility, Command, Iterator, Mediator, Memento, Observer, State, Strategy, Template Method, Visitor</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+class Singleton {
+private:
+    Singleton() {}
+    static Singleton *instance;
+
+public:
+    static Singleton *getInstance() {
+        if (!instance) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+};
+
+Singleton *Singleton::instance = nullptr;
+
+int main() {
+    Singleton *singleton = Singleton::getInstance();
+    std::cout &lt;&lt; "Singleton instance address: " &lt;&lt; singleton &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <!-- Specialized Topics -->
+        <div class="section">
+            <h2>Specialized Topics</h2>
+
+            <h3>Networking</h3>
+            <p>Networking involves communication between different systems and devices over a network.</p>
+            <ul>
+                <li><strong>Socket programming:</strong> Basics of socket creation, binding, and communication</li>
+                <li><strong>Protocols:</strong> HTTP, TCP/IP, UDP</li>
+                <li><strong>Client-server architecture:</strong> Basics of client-server communication</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;netinet/in.h&gt;
+
+int main() {
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockfd < 0) {
+        std::cerr &lt;&lt; "Socket creation error" &lt;&lt; std::endl;
+        return -1;
+    }
+    std::cout &lt;&lt; "Socket created successfully" &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Game Development</h3>
+            <p>Game development involves creating and designing games, including graphics, physics, and gameplay mechanics.</p>
+            <ul>
+                <li><strong>Game engines:</strong> Introduction to game engines like Unity, Unreal Engine</li>
+                <li><strong>Graphics programming:</strong> Basics of rendering, shaders, and graphics APIs</li>
+                <li><strong>Physics engines:</strong> Simulating physical interactions in games</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Game Development Example" &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <h3>Interfacing with Other Languages</h3>
+            <p>Interfacing involves integrating C++ code with other programming languages and technologies.</p>
+            <ul>
+                <li><strong>C++ and Python:</strong> Using C++ code within Python using libraries like Boost.Python</li>
+                <li><strong>C++ and Java:</strong> JNI (Java Native Interface) for calling C++ from Java</li>
+            </ul>
+            <div class="example">
+                <pre><code>#include &lt;iostream&gt;
+
+extern "C" {
+    void hello() {
+        std::cout &lt;&lt; "Hello from C++" &lt;&lt; std::endl;
+    }
+}
+
+int main() {
+    hello();
+    return 0;
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
+
+
+  <footer class="footer">
+        <div class="footer-links">
+            <ul>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="tearm.html">Terms of Service</a></li>
+                <li><a href="privecy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="contact-info">
+            <p>📞 Mobile: +923219515138</p>
+            <p>✉️ Email: contact@aloncoder385.com</p>
+            <p>🌍 Address: 140 sardar kote ,Samandri , Fasilabad </p>
+        </div>
+        <div class="social-media">
+            <a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/@Alon_coder" title="Youtube" target="_blank"><i class="fab fa-youtube-in"></i></a>
+            <a href="#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p style="text-align: center; font-weight: 600;">&copy; 2024 Alone_Coder. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+</body>
+
+<script>
+
+document.getElementById('mobile-menu').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.getElementById('mobile-nav').classList.toggle('active');
+});
+
+</script>
+</html>

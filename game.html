@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Games</title>
+    <link rel="stylesheet" href="game.css">
+    
+</head>
+<body>
+   
+
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Logo"></a>
+        </div>
+        <ul class="nav-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html"> About </a></li>
+            <li><a href="contect.html">Contact</a></li>
+            <li><a href="Books.html">Books</a></li>
+            <li><a href="cplus.html">C++</a></li>
+            <li><a href="clanguage.html">C</a></li>
+            <li><a href="javascript.html">J/S </a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="game.html">Programming Games</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html"> About </a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Books.html">Books</a></li>
+                <li><a href="cplus.html">C++</a></li>
+                <li><a href="clanguage.html">C</a></li>
+                <li><a href="javascript.html">J/S </a></li>
+                <li><a href="sql.html">SQL</a></li>
+                <li><a href="game.html">Programming Games</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <main>
+        <section class="intro">
+            <h1>Explore the World of Programming Games</h1>
+            <p>Programming games are a fun and interactive way to learn coding concepts and enhance your problem-solving skills. Dive into these engaging games designed to challenge your coding abilities and boost your programming knowledge.</p>
+        </section>
+
+        <section class="games">
+            <h2>Popular Programming Games</h2>
+            <h3 >BY : M.Bilal</h3>
+            <div class="game-list">
+                <div class="game-item">
+                    <h3>CodeCombat</h3>
+                    <p>Learn programming through a fantasy game where you write code to progress through levels and defeat enemies.</p>
+                    <a href="https://codecombat.com"  class="button">Play CodeCombat</a>
+                </div>
+                <div class="game-item">
+                    <h3>CheckiO</h3>
+                    <p>Improve your coding skills by solving challenging problems and competing with others.</p>
+                    <a href="https://checkio.org"  class="button">Play CheckiO</a>
+                </div>
+                <div class="game-item">
+                    <h3>CodinGame</h3>
+                    <p>Enhance your programming skills with interactive coding puzzles and competitions.</p>
+                    <a href="https://codingame.com"  class="button">Play CodinGame</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive">
+            <h2>Test Your Skills</h2>
+            <p>Try your hand at solving a simple coding challenge below:</p>
+            <textarea id="codeInput" placeholder="Write your code here..."></textarea>
+            <button id="runCode">Run Code</button>
+            <pre id="output"></pre>
+        </section>
+    </main>
+
+   
+
+    <footer class="footer">
+        <div class="footer-links">
+            <ul>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="tearm.html">Terms of Service</a></li>
+                <li><a href="privecy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="contact-info">
+            <p>📞 Mobile: +923219515138</p>
+            <p>✉️ Email: contact@aloncoder385.com</p>
+            <p>🌍 Address: 140 sardar kote ,Samandri , Fasilabad </p>
+        </div>
+        <div class="social-media">
+            <a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/@Alon_coder" title="Youtube" target="_blank"><i class="fab fa-youtube-in"></i></a>
+            <a href="#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p style="text-align: center; font-weight: 600;">&copy; 2024 Alone_Coder. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+</body>
+<script>
+
+document.getElementById('mobile-menu').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.getElementById('mobile-nav').classList.toggle('active');
+});
+
+
+
+</script>
+</html>

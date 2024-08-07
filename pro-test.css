@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Container styles */
+#container {
+    max-width: 100vw;
+    margin: 50px auto;
+    max-height: 100vh;
+    background: linear-gradient(to left bottom ,#f7fa3e, #95e6fa, #71ff89,#f7fa3e);
+    /* background: linear-gradient(to right bottom ,#f889d7); */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Form and game section styles */
+/* .hidden {
+    display: none;
+} */
+
+/* Form styling */
+/* #signupForm {
+    text-align: center;
+    animation: slideIn 1s ease-in-out;
+} */
+
+/* #signupForm input[type="text"],
+#signupForm input[type="password"],
+#signupForm input[type="email"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 10px;
+    animation: slideIn 1s ease-in-out;
+} */
+
+/* #signupForm button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    animation: slideIn 1s ease-in-out;
+} */
+/* 
+#signupForm button:hover {
+    background-color: #0056b3;
+} */
+
+/* Game button styling */
+#gameSection button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    animation: slideIn 1s ease-in-out;
+}
+
+#gameSection button:hover {
+    background-color: #0056b3;
+}
+
+/* User information section styling */
+#userInfoSection {
+    margin-top: 20px;
+    animation: slideIn 1s ease-in-out;
+}
+
+#userInfoSection h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#userInfoSection input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 10px;
+    animation: slideIn 1s ease-in-out;
+}
+ #answer{
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 10px;
+    animation: slideIn 1s ease-in-out;
+ }
+#userInfoSection button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    animation: slideIn 1s ease-in-out;
+}
+
+#userInfoSection button:hover {
+    background-color: #0056b3;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.signup,.skip{
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+       
+}
+h1,h2,p{
+    animation: slideIn 1s ease-in-out;
+}

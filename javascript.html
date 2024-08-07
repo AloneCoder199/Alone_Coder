@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning</title>
+    <link rel="stylesheet" href="js.css">
+</head>
+<body>
+  
+
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Logo"></a>
+        </div>
+        <ul class="nav-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html"> About </a></li>
+            <li><a href="contect.html">Contact</a></li>
+            <li><a href="Books.html">Books</a></li>
+            <li><a href="cplus.html">C++</a></li>
+            <li><a href="clanguage.html">C</a></li>
+            <li><a href="javascript.html">J/S </a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="game.html">Programming Games</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html"> About </a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Books.html">Books</a></li>
+                <li><a href="cplus.html">C++</a></li>
+                <li><a href="clanguage.html">C</a></li>
+                <li><a href="javascript.html">J/S </a></li>
+                <li><a href="sql.html">SQL</a></li>
+                <li><a href="game.html">Programming Games</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <h1   style="text-align: center;">Java Script Programming Guide</h1>
+        <h3  style="text-align: center;">BY: MUHAMMAD BILAL</h3>
+        <section id="beginner" class="section">
+            <div class="container">
+                <h2>Beginner Topics </h2>
+                
+                <div class="topic">
+                    <h3>Introduction to JavaScript</h3>
+                    <p><strong>Definition:</strong> JavaScript is a versatile, high-level programming language primarily used for web development.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: JavaScript Syntax
+console.log("Hello, World!");</code></pre>
+                    <p><strong>Explanation:</strong> JavaScript syntax involves using functions and objects to manipulate web elements, handle events, and perform computations.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Variables and Data Types</h3>
+                    <p><strong>Definition:</strong> Variables are used to store data, and JavaScript supports various data types like numbers, strings, and objects.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Variable Declaration
+let name = "John";
+const age = 30;
+var isStudent = true;</code></pre>
+                    <p><strong>Explanation:</strong> Variables are declared using keywords like <code>let</code>, <code>const</code>, and <code>var</code>, and can store different types of data.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Operators</h3>
+                    <p><strong>Definition:</strong> Operators are symbols used to perform operations on variables and values. JavaScript includes arithmetic, relational, logical, and bitwise operators.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Arithmetic Operators
+let sum = 10 + 5;
+let difference = 10 - 5;</code></pre>
+                    <p><strong>Explanation:</strong> Operators allow you to perform calculations and comparisons, manipulate variables, and control program flow.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Control Statements</h3>
+                    <p><strong>Definition:</strong> Control statements like if-else, switch-case, and loops control the flow of execution in a program.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: If-Else Statement
+if (age > 18) {
+    console.log("Adult");
+} else {
+    console.log("Minor");
+}</code></pre>
+                    <p><strong>Explanation:</strong> Control statements determine which blocks of code are executed based on conditions and allow repeated execution of code using loops.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Functions</h3>
+                    <p><strong>Definition:</strong> Functions are reusable blocks of code that perform specific tasks. They can accept parameters and return values.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Function Declaration
+function greet(name) {
+    return "Hello, " + name + "!";
+}</code></pre>
+                    <p><strong>Explanation:</strong> Functions encapsulate code for reuse and modularity, making programs easier to manage and maintain.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="intermediate" class="section">
+            <div class="container">
+                <h2>Intermediate Topics </h2>
+                
+                <div class="topic">
+                    <h3>Objects</h3>
+                    <p><strong>Definition:</strong> Objects are collections of properties and methods that represent real-world entities and allow structured data management.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Object Declaration
+let person = {
+    name: "John",
+    age: 30,
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};</code></pre>
+                    <p><strong>Explanation:</strong> Objects group related data and functions, providing a way to model complex entities and their behaviors.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Arrays</h3>
+                    <p><strong>Definition:</strong> Arrays are ordered collections of values that can be of any data type, allowing efficient data storage and manipulation.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Array Declaration
+let numbers = [1, 2, 3, 4, 5];</code></pre>
+                    <p><strong>Explanation:</strong> Arrays provide methods for accessing, modifying, and iterating over elements, making them useful for handling lists of data.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>DOM Manipulation</h3>
+                    <p><strong>Definition:</strong> DOM (Document Object Model) manipulation involves using JavaScript to interact with and modify HTML elements and their properties.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: DOM Manipulation
+document.getElementById("example").innerHTML = "Hello, World!";</code></pre>
+                    <p><strong>Explanation:</strong> DOM manipulation allows dynamic updates to web pages, enabling interactive and responsive user experiences.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Event Handling</h3>
+                    <p><strong>Definition:</strong> Event handling involves responding to user actions, such as clicks, key presses, and mouse movements, using event listeners.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Event Handling
+document.getElementById("btn").addEventListener("click", function() {
+    alert("Button clicked!");
+});</code></pre>
+                    <p><strong>Explanation:</strong> Event handling allows developers to create interactive web applications by responding to user inputs and actions.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>ES6 Features</h3>
+                    <p><strong>Definition:</strong> ES6 (ECMAScript 2015) introduced new features and syntax improvements to JavaScript, including arrow functions, classes, and template literals.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Arrow Function
+const add = (a, b) => a + b;</code></pre>
+                    <p><strong>Explanation:</strong> ES6 features enhance JavaScript with more concise syntax, better scoping, and improved readability and maintainability.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="section">
+            <div class="container">
+                <h2>Advanced Topics </h2>
+                
+                <div class="topic">
+                    <h3>Asynchronous JavaScript</h3>
+                    <p><strong>Definition:</strong> Asynchronous JavaScript allows non-blocking operations using callbacks, promises, and async/await, enabling concurrent execution of tasks.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Async/Await
+async function fetchData() {
+    let response = await fetch("https://api.example.com/data");
+    let data = await response.json();
+    console.log(data);
+}</code></pre>
+                    <p><strong>Explanation:</strong> Asynchronous programming improves performance by allowing tasks to run concurrently without blocking the main thread.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Closures</h3>
+                    <p><strong>Definition:</strong> Closures are functions that have access to their own scope, the outer function's scope, and the global scope, even after the outer function has returned.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Closure
+function outer() {
+    let count = 0;
+    return function() {
+        count++;
+        console.log(count);
+    };
+}
+
+let counter = outer();
+counter(); // 1
+counter(); // 2</code></pre>
+                    <p><strong>Explanation:</strong> Closures enable encapsulation and data privacy, allowing functions to retain access to variables from their defining scope.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Prototypes and Inheritance</h3>
+                    <p><strong>Definition:</strong> Prototypes are the mechanism by which JavaScript objects inherit properties and methods from other objects, enabling inheritance and code reuse.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Prototype Inheritance
+function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.greet = function() {
+    console.log("Hello, " + this.name);
+};
+
+let john = new Person("John");
+john.greet(); // Hello, John</code></pre>
+                    <p><strong>Explanation:</strong> Prototypes allow objects to share properties and methods, promoting code reuse and efficient memory usage.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Modules</h3>
+                    <p><strong>Definition:</strong> Modules are used to organize and encapsulate code into reusable units, enabling better code organization and avoiding global namespace pollution.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Module
+// file: math.js
+export function add(a, b) {
+    return a + b;
+}
+
+// file: main.js
+import { add } from './math.js';
+console.log(add(2, 3)); // 5</code></pre>
+                    <p><strong>Explanation:</strong> Modules provide a way to structure code, manage dependencies, and promote code reuse and maintainability.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Promises</h3>
+                    <p><strong>Definition:</strong> Promises are objects that represent the eventual completion (or failure) of an asynchronous operation and its resulting value.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Promise
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Success!"), 1000);
+});
+
+promise.then(result => console.log(result)); // Success!</code></pre>
+                    <p><strong>Explanation:</strong> Promises provide a cleaner way to handle asynchronous operations, avoiding callback hell and improving code readability.</p>
+                </div>
+
+                <div class="topic">
+                    <h3>Web APIs</h3>
+                    <p><strong>Definition:</strong> Web APIs are interfaces provided by browsers and servers that allow interaction with various functionalities, such as DOM manipulation, fetching data, and handling multimedia.</p>
+                    <p><strong>Syntax:</strong></p>
+                    <pre><code>// Example: Fetch API
+fetch("https://api.example.com/data")
+    .then(response => response.json())
+    .then(data => console.log(data));</code></pre>
+                    <p><strong>Explanation:</strong> Web APIs enable powerful web applications by providing access to a wide range of functionalities and services.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-links">
+            <ul>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="tearm.html">Terms of Service</a></li>
+                <li><a href="privecy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="contact-info">
+            <p>📞 Mobile: +923219515138</p>
+            <p>✉️ Email: contact@aloncoder385.com</p>
+            <p>🌍 Address: 140 sardar kote ,Samandri , Fasilabad </p>
+        </div>
+        <div class="social-media">
+            <a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/@Alon_coder" title="Youtube" target="_blank"><i class="fab fa-youtube-in"></i></a>
+            <a href="#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p style="text-align: center; font-weight: 600;">&copy; 2024 Alone_Coder. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+<script>
+    
+document.getElementById('mobile-menu').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.getElementById('mobile-nav').classList.toggle('active');
+});
+
+</script>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project</title>
+    <link rel="stylesheet" href="cplus.css">
+</head>
+<body class="body">
+    <div class="container-p">
+        <h2>Calculator Program in C++</h2>
+        <p class="p">
+#include &lt;iostream&gt;<br>
+#include &lt;cmath&gt;<br><br>
+
+using namespace std;<br><br>
+
+// Function declarations<br>
+void showMenu();<br>
+double add(double a, double b);<br>
+double subtract(double a, double b);<br>
+double multiply(double a, double b);<br>
+double divide(double a, double b);<br>
+double power(double base, double exponent);<br>
+double sqrt(double a);<br><br>
+
+int main() {<br>
+    &nbsp;&nbsp;double num1, num2;<br>
+    &nbsp;&nbsp;int choice;<br>
+    &nbsp;&nbsp;bool continueCalculation = true;<br><br>
+
+    &nbsp;&nbsp;while (continueCalculation) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;showMenu();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Enter your choice: ";<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;cin &gt;&gt; choice;<br><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;switch (choice) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 1:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Enter two numbers: ";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin &gt;&gt; num1 &gt;&gt; num2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Result: " &lt;&lt; add(num1, num2) &lt;&lt; endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 2:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Enter two numbers: ";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin &gt;&gt; num1 &gt;&gt; num2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Result: " &lt;&lt; subtract(num1, num2) &lt;&lt; endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 3:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Enter two numbers: ";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin &gt;&gt; num1 &gt;&gt; num2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Result: " &lt;&lt; multiply(num1, num2) &lt;&lt; endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 4:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Enter two numbers: ";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin &gt;&gt; num1 &gt;&gt; num2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (num2 != 0) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Result: " &lt;&lt; divide(num1, num2) &lt;&lt; endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Error: Division by zero!" &lt;&lt; endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 5:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Enter the base and exponent: ";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin &gt;&gt; num1 &gt;&gt; num2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Result: " &lt;&lt; power(num1, num2) &lt;&lt; endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 6:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Enter a number: ";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin &gt;&gt; num1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (num1 >= 0) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Result: " &lt;&lt; sqrt(num1) &lt;&lt; endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Error: Negative number!" &lt;&lt; endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 7:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continueCalculation = false;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Invalid choice. Please try again." &lt;&lt; endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;}<br><br>
+
+    &nbsp;&nbsp;cout &lt;&lt; "Calculator has exited." &lt;&lt; endl;<br>
+    &nbsp;&nbsp;return 0;<br>
+}<br><br>
+
+void showMenu() {<br>
+    &nbsp;&nbsp;cout &lt;&lt; "\n***** Calculator Menu *****\n";<br>
+    &nbsp;&nbsp;cout &lt;&lt; "1. Addition\n";<br>
+    &nbsp;&nbsp;cout &lt;&lt; "2. Subtraction\n";<br>
+    &nbsp;&nbsp;cout &lt;&lt; "3. Multiplication\n";<br>
+    &nbsp;&nbsp;cout &lt;&lt; "4. Division\n";<br>
+    &nbsp;&nbsp;cout &lt;&lt; "5. Power\n";<br>
+    &nbsp;&nbsp;cout &lt;&lt; "6. Square Root\n";<br>
+    &nbsp;&nbsp;cout &lt;&lt; "7. Exit\n";<br>
+    &nbsp;&nbsp;cout &lt;&lt; "****************************\n";<br>
+}<br><br>
+
+double add(double a, double b) {<br>
+    &nbsp;&nbsp;return a + b;<br>
+}<br>
+
+double subtract(double a, double b) {<br>
+    &nbsp;&nbsp;return a - b;<br>
+}<br>
+
+double multiply(double a, double b) {<br>
+    &nbsp;&nbsp;return a * b;<br>
+}<br>
+
+double divide(double a, double b) {<br>
+    &nbsp;&nbsp;return a / b;<br>
+}<br>
+
+double power(double base, double exponent) {<br>
+    &nbsp;&nbsp;return pow(base, exponent);<br>
+}<br>
+
+double sqrt(double a) {<br>
+    &nbsp;&nbsp;return std::sqrt(a);<br>
+}<br>
+        </p>
+               <h2 class="h2">Explanation by Muhammad Bilal</h2>
+        <p class="p">
+This program is a calculator written in C++ that replicates the functions of an Android mobile calculator. The program includes addition, subtraction, multiplication, division, power, and square root functions.<br><br>
+
+1. <strong>showMenu function</strong>: This function displays the calculator's menu, allowing the user to select different operations.<br><br>
+
+2. <strong>Addition function</strong>: The <code>add(double a, double b)</code> function adds two numbers and returns the result.<br><br>
+
+3. <strong>Subtraction function</strong>: The <code>subtract(double a, double b)</code> function subtracts two numbers and returns the result.<br><br>
+
+4. <strong>Multiplication function</strong>: The <code>multiply(double a, double b)</code> function multiplies two numbers and returns the result.<br><br>
+
+5. <strong>Division function</strong>: The <code>divide(double a, double b)</code> function divides two numbers and returns the result. It handles division by zero errors.<br><br>
+
+6. <strong>Power function</strong>: The <code>power(double base, double exponent)</code> function calculates the power of a base number raised to an exponent and returns the result.<br><br>
+
+7. <strong>Square Root function</strong>: The <code>sqrt(double a)</code> function calculates the square root of a number. It handles errors for negative numbers.<br><br>
+
+8. <strong>Main function</strong>: The main function takes user input and calls the respective function. This loop continues until the user selects the exit option.<br><br>
+
+The explanation of this program is provided by Muhammad Bilal.
+        </p>
+
+    </div>
+</body>
+</html>

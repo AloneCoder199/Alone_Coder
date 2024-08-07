@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="pro-test.css">
+    <title>ALONE_CODER-- Programming Test </title>
+</head>
+<body>
+    <div id="container">
+        <!-- Sign-up section -->
+        <div id="signupSection">
+            <h1 style="font-style: italic;">Welcome To C++ Programming Test<p style="color: white; font-weight: 900; font-style: italic;"></p> <p style="color: white;font-style: italic;"></p></h1>
+        </div>
+
+        <!-- User information section -->
+        <div id="userInfoSection" class="hidden">
+            <h2>Welcome, <span id="userName" id="lastNameInput"></span>!</h2>
+            <h4>Please provide your Personal information:</h4>
+            <input type="text" id="nameInput" placeholder="Name" required><br>
+            <input type="text" id="ageInput" placeholder="Age" required><br>
+            <input type="text" id="classInput" placeholder="Class" required><br>
+            <input type="text" id="favBookInput" placeholder="Favorite Book" required><br>
+            <input type="text" id="collegeInput" placeholder="College Name" required><br>
+            <button id="proceedBtn">Proceed to Game</button>
+        </div>
+
+        <!-- Game section -->
+        <div id="gameSection" class="hidden">
+            <h3>C++ Programming Quiz Game</h3>
+            <h5>DEVELOPER NAME</h5>
+            <h4 style="font-size: 20px; font-weight: 900; font-style:italic;">"MUHAMMAD BILAL"</h4>
+            <p id="score">Score: <span id="userScore" style="    font-size: 20px; " >0</span></p>
+            <p id="question" style="    font-size: 20px;
+            font-style: oblique;
+            font-weight: 500;"></p>
+            <input type="text" id="answer" placeholder="Enter your answer" required>
+            <br><br>
+            <button id="submitAnswer">Submit</button>
+            <button id="getHint" class="hidden">Get Hint</button>
+            <button id="showAnswer" class="hidden">Show Answer</button>
+            <button id="showExplanation" class="hidden">Show Explanation</button>
+            <p id="levelMessage"></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code
+        // Get elements
+        const signupSection = document.getElementById("signupSection");
+        const signupFormSection = document.getElementById("signupFormSection");
+        const userInfoSection = document.getElementById("userInfoSection");
+        const gameSection = document.getElementById("gameSection");
+        const firstNameInput = document.getElementById("firstNameInput");
+        const lastNameInput = document.getElementById("lastNameInput");
+        const emailInput = document.getElementById("emailInput");
+        const passwordInput = document.getElementById("passwordInput");
+        const userName = document.getElementById("userName");
+        const genderInput = document.getElementById("genderInput");
+        const classInput = document.getElementById("classInput");
+        const proceedBtn = document.getElementById("proceedBtn");
+
+        // Sign-up form submission
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const email = emailInput.value.trim();
+            if (!isValidEmail(email)) {
+                alert(" M.Bilal say's Please enter a valid email address.");
+                return;
+            }
+            // Set user information
+            userName.textContent = firstNameInput.value;
+            // Hide sign-up section, show user info section
+            signupSection.style.display = "none";
+            signupFormSection.style.display = "none";
+            userInfoSection.style.display = "block";
+        });
+
+        // Proceed to game button click
+        proceedBtn.addEventListener("click", function() {
+            // Check if the class is valid
+            const validClasses = ["BSIT", "IT", "CS", "BSCS", "Computer"];
+            const userClass = classInput.value.toUpperCase();
+            if (!validClasses.includes(userClass)) {
+                alert(" M.Bilal say's please provide the given information, And  This game is only for Computer students.");
+                return;
+            }
+            // Hide user info section, show game section
+            userInfoSection.style.display = "none";
+            gameSection.style.display = "block";
+            startGame();
+        });
+
+        const questions = [
+{
+    question: "What is the output of 'cout << (5 > 3 ? \"true\" : \"false\");' in C++?",
+    answer: "true",
+    hint: "It's a simple comparison operation.",
+    explanation: "In C++, the expression (5 > 3) evaluates to true, so the output of 'cout << (5 > 3 ? \"true\" : \"false\");' will be 'true'."
+},
+{
+    question: "What is the result of 'sizeof(int)' in C++?",
+    answer: "4",
+    hint: "It gives the size of the 'int' data type in bytes.",
+    explanation: "The 'sizeof' operator in C++ returns the size in bytes of the specified data type. For 'int', it typically returns 4 bytes on most systems."
+},
+{
+    question: "What is the result of '10 / 3' in C++?",
+    answer: "3",
+    hint: "This operation performs integer division.",
+    explanation: "In C++, when you divide two integers, the result is also an integer. Therefore, 10 divided by 3 results in 3, as the fractional part is truncated."
+},
+{
+    question: "What is the purpose of 'break' statement in C++?",
+    answer: "To exit from a loop",
+    hint: "It's used to terminate the execution of a loop.",
+    explanation: "The 'break' statement in C++ is used to exit from a loop prematurely. It terminates the execution of the innermost loop enclosing it."
+},
+{
+    question: "What is the correct syntax to declare a pointer in C++?",
+    answer: "int *ptr;",
+    hint: "It involves the use of '*' symbol.",
+    explanation: "To declare a pointer in C++, you use the '*' symbol followed by the data type. For example, 'int *ptr;' declares a pointer to an integer."
+},
+{
+    question: "What is the result of '5 * 3 + 2' in C++?",
+    answer: "17",
+    hint: "Follow the order of operations (BODMAS/BIDMAS).",
+    explanation: "In C++, multiplication (*) has higher precedence than addition (+). So, 5 * 3 is evaluated first, resulting in 15. Then 2 is added, resulting in 17."
+},
+{
+    question: "What is the output of 'cout << 5 << 3;' in C++?",
+    answer: "53",
+    hint: "It concatenates numbers when using the stream insertion operator.",
+    explanation: "In C++, the '<<' operator is used for output with 'cout'. When multiple '<<' operators are used consecutively, the outputs are concatenated. So, the output of 'cout << 5 << 3;' will be '53'."
+},
+{
+    question: "What is the purpose of 'continue' statement in C++?",
+    answer: "To skip the current iteration of a loop",
+    hint: "It moves the control to the beginning of the loop for the next iteration.",
+    explanation: "The 'continue' statement in C++ is used to skip the current iteration of a loop and move the control to the beginning of the loop for the next iteration."
+},
+{
+    question: "What is the result of 'true && false' in C++?",
+    answer: "false",
+    hint: "It's a logical AND operation.",
+    explanation: "In C++, the '&&' operator performs a logical AND operation. It returns true if both operands are true; otherwise, it returns false. Since one operand (false) is false, the result is false."
+},
+{
+    question: "What is the correct syntax to define a function in C++?",
+    answer: "returnType functionName(parameters) { // function body }",
+    hint: "It consists of a return type, function name, and parameters.",
+    explanation: "In C++, a function definition typically includes the return type, function name, parameters (if any), and the function body enclosed in curly braces. For example, 'int add(int a, int b) { return a + b; }' defines a function named 'add' that takes two integers as parameters and returns their sum."
+},
+{
+    question: "What is the output of 'cout << 10 % 3;' in C++?",
+    answer: "1",
+    hint: "It's the remainder when dividing 10 by 3.",
+    explanation: "The '%' operator in C++ is the modulus operator, which gives the remainder of the division. So, '10 % 3' results in 1, as 10 divided by 3 equals 3 with a remainder of 1."
+},
+{
+    question: "What is the purpose of 'const' keyword in C++?",
+    answer: "To declare constants",
+    hint: "It indicates that a variable's value cannot be changed.",
+    explanation: "In C++, the 'const' keyword is used to declare constants. Once a variable is declared as 'const', its value cannot be changed."
+},
+{
+    question: "What is the result of 'int x = 5; x *= 2;' in C++?",
+    answer: "10",
+    hint: "It's a shorthand for multiplying and assigning.",
+    explanation: "The '*=' operator in C++ is a shorthand for multiplying the variable by a value and assigning the result back to the variable. So, 'int x = 5; x *= 2;' is equivalent to 'x = x * 2;', resulting in 'x' being assigned the value 10."
+},
+{
+    question: "What is the output of 'cout << (10 > 5 ? 1 : 0);' in C++?",
+    answer: "1",
+    hint: "It's a ternary conditional operator.",
+    explanation: "The expression '(10 > 5 ? 1 : 0)' is using the ternary conditional operator '? :'. Since the condition '10 > 5' is true, the expression evaluates to '1'. Therefore, the output of 'cout << (10 > 5 ? 1 : 0);' is '1'."
+},
+{
+    question: "What is the correct way to access the second element of an array named 'arr' in C++?",
+    answer: "arr[1]",
+    hint: "Array indices start from zero.",
+    explanation: "In C++, array indices start from zero. So, to access the second element of an array named 'arr', you would use 'arr[1]'."
+},
+{
+    question: "What is the output of 'cout << (10 == 5 && 3 < 1);' in C++?",
+    answer: "0",
+    hint: "It's a logical AND operation.",
+    explanation: "The expression '(10 == 5 && 3 < 1)' involves the logical AND operator '&&'. Since the first condition '10 == 5' is false and '3 < 1' is also false, the overall expression evaluates to 'false' (represented as '0'). Therefore, the output is '0'."
+},
+{
+    question: "What is the result of 'sizeof(double)' in C++?",
+    answer: "8",
+    hint: "It's the size in bytes of the 'double' data type.",
+    explanation: "The 'sizeof' operator in C++ returns the size in bytes of its operand. Since 'double' is typically 8 bytes on most systems, 'sizeof(double)' evaluates to '8'."
+},
+{
+    question: "What is the purpose of 'new' operator in C++?",
+    answer: "To dynamically allocate memory",
+    hint: "It's used to allocate memory on the heap.",
+    explanation: "In C++, the 'new' operator is used to dynamically allocate memory on the heap. It returns a pointer to the allocated memory, allowing dynamic memory management during program execution."
+},{
+    question: "What is the result of '10 % 2' in C++?",
+    answer: "0",
+    hint: "It's the remainder when dividing 10 by 2.",
+    explanation: "The '%' operator in C++ is the modulus operator, which returns the remainder of the division operation. In this case, '10 % 2' evaluates to '0' because 10 is evenly divisible by 2."
+},
+{
+    question: "What is the output of 'cout << \"Hello\" << endl << \"World\";' in C++?",
+    answer: "Hello\nWorld",
+    hint: "The 'endl' inserts a newline character.",
+    explanation: "The 'endl' manipulator in C++ inserts a newline character and flushes the output buffer. So, the output of 'cout << \"Hello\" << endl << \"World\";' would be 'Hello' followed by a newline, then 'World'."
+},
+{
+    question: "What is the purpose of 'friend' keyword in C++?",
+    answer: "To grant access to private and protected members of a class to another class or function",
+    hint: "It allows external functions or classes to access private or protected members.",
+    explanation: "In C++, the 'friend' keyword is used to grant access to private and protected members of a class to another class or function. It allows specific functions or classes to access the private and protected members of a class."
+},
+{
+    question: "What is the result of 'sizeof(bool)' in C++?",
+    answer: "1",
+    hint: "It's the size in bytes of the 'bool' data type.",
+    explanation: "The 'sizeof' operator in C++ returns the size in bytes of its operand. Since 'bool' typically occupies 1 byte of memory on most systems, 'sizeof(bool)' evaluates to '1'."
+},
+{
+    question: "What is the output of 'cout << (5 > 3) << endl << (10 == 5);' in C++?",
+    answer: "1\n0",
+    hint: "It's a combination of two outputs separated by newline characters.",
+    explanation: "The expressions '(5 > 3)' and '(10 == 5)' evaluate to 'true' (represented as '1') and 'false' (represented as '0') respectively. The 'endl' manipulator inserts a newline character. So, the output is '1' followed by a newline, then '0'."
+},{
+    question: "What is the purpose of 'static' keyword in C++?",
+    answer: "To declare static variables and static member functions",
+    hint: "It's used to create variables that persist beyond function calls.",
+    explanation: "In C++, the 'static' keyword is used to declare static variables and static member functions. Static variables retain their values between function calls, and static member functions can be called without an instance of the class."
+},
+{
+    question: "What is the result of '10 / 3.0' in C++?",
+    answer: "3.33333",
+    hint: "It's floating-point division.",
+    explanation: "When dividing an integer by a floating-point number in C++, the result is automatically promoted to a floating-point number. So, '10 / 3.0' evaluates to approximately '3.33333'."
+},
+{
+    question: "What is the output of 'cout << 5.0 / 2;' in C++?",
+    answer: "2.5",
+    hint: "It's floating-point division.",
+    explanation: "In C++, when performing division with at least one floating-point operand, the result is a floating-point number. So, '5.0 / 2' evaluates to '2.5'."
+},
+{
+    question: "What is the purpose of 'this' pointer in C++?",
+    answer: "To refer to the current object",
+    hint: "It's a pointer that refers to the current object.",
+    explanation: "In C++, the 'this' pointer is a special pointer that holds the address of the current object. It's used to refer to the members of the current object within member functions."
+}, {
+    question: "What is the result of '10 / 0.0' in C++?",
+    answer: "Infinity or NaN (Not a Number)",
+    hint: "Dividing by zero produces a special value.",
+    explanation: "Dividing a non-zero number by zero in C++ results in either positive or negative infinity, or a special value called NaN (Not a Number), depending on the platform and compiler settings."
+},
+{
+    question: "What is the output of 'cout << (10 < 5 ? 1 : 0);' in C++?",
+    answer: "0",
+    hint: "It's a ternary conditional operator.",
+    explanation: "The expression '(10 < 5 ? 1 : 0)' evaluates to '0' because the condition '10 < 5' is false. Therefore, the output of the entire expression is '0'."
+},
+{
+    question: "What is the correct way to access the second element of an array named 'arr' in C++?",
+    answer: "arr[1]",
+    hint: "Array indices start from zero.",
+    explanation: "In C++, array indices start from zero. Therefore, to access the second element of the array 'arr', you would use 'arr[1]'."
+},
+{
+    question: "What is the output of 'cout << (10 == 5 && 3 < 1);' in C++?",
+    answer: "0",
+    hint: "It's a logical AND operation.",
+    explanation: "The logical AND operator ('&&') returns true if both its operands are true; otherwise, it returns false. In this case, '10 == 5' evaluates to false, and '3 < 1' also evaluates to false. Therefore, the overall expression evaluates to false, which is represented as '0' when printed."
+},
+{
+    question: "What is the result of 'sizeof(double)' in C++?",
+    answer: "8",
+    hint: "It's the size in bytes of the 'double' data type.",
+    explanation: "In C++, the 'sizeof' operator returns the size of a data type in bytes. Since 'double' is a double-precision floating-point type, it typically occupies 8 bytes of memory on most systems."
+},
+{
+    question: "What is the purpose of 'new' operator in C++?",
+    answer: "To dynamically allocate memory",
+    hint: "It's used to allocate memory on the heap.",
+    explanation: "The 'new' operator in C++ is used to dynamically allocate memory during program execution. It is typically used when the size of the object to be allocated is not known at compile time or when the lifetime of the object needs to extend beyond the scope of the block in which it is declared."
+},
+{
+    question: "What is the output of 'cout << (10 != 5);' in C++?",
+    answer: "1",
+    hint: "It's a comparison operation.",
+    explanation: "The inequality operator '!=' returns true if the operands are not equal; otherwise, it returns false. Since '10' is not equal to '5', the expression evaluates to true, which is represented as '1' when printed."
+},
+{
+    question: "What is the correct syntax to define a constructor in C++?",
+    answer: "className(parameters) { // constructor body }",
+    hint: "It's a special member function with the same name as the class.",
+    explanation: "In C++, a constructor is a special member function of a class that is automatically called when an object of that class is created. It has the same name as the class and may have parameters. The constructor is used to initialize the object's state."
+},
+{
+    question: "What is the result of '10 / 3 * 2' in C++?",
+    answer: "6",
+    hint: "Follow the order of operations (BODMAS/BIDMAS).",
+    explanation: "In C++, arithmetic operations follow the order of operations rules, also known as BODMAS/BIDMAS (Brackets, Orders, Division and Multiplication, Addition and Subtraction). So, '10 / 3' evaluates to '3' (integer division), and '3 * 2' evaluates to '6'."
+},
+{
+    question: "What is the output of 'cout << 10 / 3 << \" \" << 10 % 3;' in C++?",
+    answer: "3 1",
+    hint: "It's a combination of division and modulus operations.",
+    explanation: "The expression '10 / 3' performs integer division, resulting in '3'. The expression '10 % 3' calculates the remainder of the division, resulting in '1'. Therefore, the output of the entire expression is '3 1'."
+},
+{
+    question: "What is the purpose of 'virtual' keyword in C++?",
+    answer: "To enable polymorphism and late binding",
+    hint: "It's used in inheritance to allow overridden functions.",
+    explanation: "In C++, the 'virtual' keyword is used in base class function declarations to enable polymorphism, allowing a derived class to override the function. It also enables late binding, which means the appropriate function to call is determined at runtime based on the type of object."
+},
+{
+    question: "What is the purpose of the 'while' loop in C++?",
+    answer: "To repeatedly execute a block of code as long as a condition is true",
+    hint: "It's used for iterating over a block of code while a condition remains true.",
+    explanation: "The 'while' loop in C++ repeatedly executes a block of code as long as the specified condition is true. It's commonly used when the number of iterations is not known in advance, and the loop continues until a condition is met."
+},
+{
+    question: "What is the syntax for declaring a constant variable in C++?",
+    answer: "const dataType constantName = value;",
+    hint: "It involves using the 'const' keyword before the data type when declaring the variable.",
+    explanation: "In C++, a constant variable is declared using the 'const' keyword followed by the data type, variable name, and optional initialization value. Once initialized, the value of a constant variable cannot be changed during program execution."
+},
+{
+    question: "What is the output of 'cout << 10 % 3;' in C++?",
+    answer: "1",
+    hint: "It's the remainder when dividing 10 by 3.",
+    explanation: "The modulus operator '%' returns the remainder of a division operation. In this case, '10 % 3' evaluates to '1' because 10 divided by 3 leaves a remainder of 1."
+},
+{
+    question: "What is the purpose of 'else' statement in C++?",
+    answer: "To execute a block of code if the 'if' condition is false",
+    hint: "It's used in conjunction with the 'if' statement to handle the false condition.",
+    explanation: "In C++, the 'else' statement is used in conjunction with the 'if' statement to execute a block of code when the condition of the 'if' statement is false. It provides an alternative path of execution when the 'if' condition evaluates to false."
+},
+{
+    question: "What is the syntax for a multi-line comment in C++?",
+    answer: "/* This is a\nmulti-line comment */",
+    hint: "It starts with '/*' and ends with '*/', allowing comments to span multiple lines.",
+    explanation: "In C++, multi-line comments are enclosed within '/*' and '*/' and can span multiple lines. They are often used to provide detailed explanations or to temporarily disable blocks of code."
+},
+{
+    question: "What is the result of 'sizeof(float)' in C++?",
+    answer: "4",
+    hint: "It's the size in bytes of the 'float' data type.",
+    explanation: "In C++, the 'sizeof' operator returns the size of a data type in bytes. The 'float' data type typically occupies 4 bytes of memory on most systems."
+},
+{
+    question: "What is the purpose of 'do-while' loop in C++?",
+    answer: "To repeatedly execute a block of code until a condition is true",
+    hint: "It's similar to the 'while' loop but guarantees at least one execution of the block.",
+    explanation: "The 'do-while' loop in C++ is similar to the 'while' loop but differs in that it guarantees at least one execution of the block of code, even if the condition is false initially. It's commonly used when the loop must execute at least once, regardless of the condition."
+},
+{
+    question: "What is the syntax for a preprocessor directive in C++?",
+    answer: "#directive",
+    hint: "It starts with the '#' symbol followed by a directive such as 'include' or 'define'.",
+    explanation: "Preprocessor directives in C++ begin with the '#' symbol and are used to provide instructions to the preprocessor, which operates before the actual compilation process. Directives such as 'include', 'define', and 'ifdef' are commonly used to control the compilation process."
+},
+{
+    question: "What is the output of 'cout << (5 > 3) << endl << (10 == 5);' in C++?",
+    answer: "1\n0",
+    hint: "It's a combination of two outputs separated by newline characters.",
+    explanation: "The expression '(5 > 3)' evaluates to true, which is represented as '1' when printed. The expression '(10 == 5)' evaluates to false, which is represented as '0' when printed. The 'endl' inserts a newline character, separating the two outputs."
+},
+{
+    question: "What is the purpose of 'for' loop in C++?",
+    answer: "To repeatedly execute a block of code for a specified number of times",
+    hint: "It's commonly used for iterating over a range of values.",
+    explanation: "The 'for' loop in C++ is used to repeatedly execute a block of code for a specified number of times. It's commonly used when the number of iterations is known in advance or when iterating over a range of values."
+},
+{
+    question: "What is the syntax for including a standard C++ library header file?",
+    answer: "#include <headerName>",
+    hint: "It uses the '#include' directive followed by the name of the header file enclosed in angle brackets.",
+    explanation: "To include a standard C++ library header file in a program, you use the '#include' directive followed by the name of the header file enclosed in angle brackets '<' and '>'. This tells the compiler to include the contents of the specified header file in your program."
+},
+{
+    question: "What is the result of '10 / 0' in C++?",
+    answer: "Undefined behavior or runtime error",
+    hint: "Dividing by zero is undefined behavior in C++.",
+    explanation: "In C++, dividing by zero is undefined behavior and may result in a runtime error or abnormal program termination. This is because division by zero is mathematically undefined and not supported by the language."
+},
+{
+    question: "What is the purpose of 'switch' statement in C++?",
+    answer: "To execute one of many different blocks of code based on the value of an expression",
+    hint: "It's used for multi-way branching based on the value of an expression.",
+    explanation: "The 'switch' statement in C++ is used for multi-way branching based on the value of an expression. It allows the program to execute different blocks of code depending on the value of the expression, providing an alternative to multiple 'if-else' statements."
+},
+{
+    question: "What is the syntax for declaring a one-dimensional array in C++?",
+    answer: "dataType arrayName[arraySize];",
+    hint: "It involves specifying the data type followed by the array name and its size in square brackets.",
+    explanation: "To declare a one-dimensional array in C++, you specify the data type of the elements followed by the array name and the size of the array enclosed in square brackets. For example, 'int numbers[5];' declares an integer array named 'numbers' with a size of 5 elements."
+},
+{
+    question: "What is the result of 'sizeof(char)' in C++?",
+    answer: "1",
+    hint: "It's the size in bytes of the 'char' data type.",
+    explanation: "In C++, the 'sizeof' operator returns the size of a data type in bytes. The 'char' data type typically occupies 1 byte of memory on most systems."
+}, {
+    question: "What is the syntax for a function call in C++?",
+    answer: "functionName(arguments);",
+    hint: "It involves specifying the function name followed by parentheses containing arguments.",
+    explanation: "To call a function in C++, you use its name followed by parentheses. If the function requires any arguments, you include them within the parentheses. For example, if you have a function named 'add' that takes two integers as arguments, you would call it like this: 'add(5, 3);'."
+},
+{
+    question: "What is the result of '10 * 3' in C++?",
+    answer: "30",
+    hint: "It's a basic arithmetic operation involving multiplication.",
+    explanation: "The expression '10 * 3' in C++ results in 30 because it's a basic arithmetic operation where the '*' symbol represents multiplication. When you multiply 10 by 3, the result is 30."
+},
+{
+    question: "What is the purpose of 'continue' statement in C++?",
+    answer: "To skip the current iteration of a loop and continue with the next iteration",
+    hint: "It moves the control to the beginning of the loop for the next iteration.",
+    explanation: "In C++, the 'continue' statement is used within loops to skip the current iteration and proceed with the next iteration of the loop. It's typically used when certain conditions are met and you want to bypass the rest of the loop's code for the current iteration."
+},
+{
+    question: "What is the syntax for declaring a two-dimensional array in C++?",
+    answer: "dataType arrayName[rowSize][colSize];",
+    hint: "It involves specifying the data type followed by the array name and its dimensions in square brackets.",
+    explanation: "To declare a two-dimensional array in C++, you specify the data type of the elements followed by the array name and the dimensions of the array in square brackets. For example, 'int matrix[3][3];' declares a 3x3 integer matrix."
+},
+{
+    question: "What is the result of '10 - 3' in C++?",
+    answer: "7",
+    hint: "It's a basic arithmetic operation involving subtraction.",
+    explanation: "The expression '10 - 3' in C++ results in 7 because it's a basic arithmetic operation where the '-' symbol represents subtraction. When you subtract 3 from 10, the result is 7."
+},
+{
+    question: "What is the purpose of 'typedef' keyword in C++?",
+    answer: "To create a new name for an existing data type",
+    hint: "It's used to create an alias or alternative name for a data type.",
+    explanation: "In C++, the 'typedef' keyword is used to create a new name for an existing data type. It's often used to improve code readability by defining more meaningful names for complex data types or to create platform-independent code."
+},
+{
+    question: "What is the output of 'cout << \"Hello\" << endl << \"World\";' in C++?",
+    answer: "Hello\nWorld",
+    hint: "The 'endl' inserts a newline character.",
+    explanation: "The 'cout' statement in C++ is used to output data to the console. In this case, it first prints 'Hello' followed by a newline character ('\n'), then 'World'. The 'endl' manipulator is used to insert a newline character, causing 'World' to be printed on a new line."
+},
+{
+    question: "What is the purpose of 'return' statement in a function in C++?",
+    answer: "To exit the function and optionally return a value to the caller",
+    hint: "It's used to return control from a function back to the caller.",
+    explanation: "The 'return' statement in C++ is used to exit a function and return control to the caller. It can optionally return a value, which is specified after the 'return' keyword. When a 'return' statement is encountered, the function immediately exits, and the program execution resumes from the point where the function was called."
+},
+{
+    question: "What is the syntax for a function definition in C++?",
+    answer: "returnType functionName(parameters) { // function body }",
+    hint: "It consists of a return type, function name, parameters, and the function body enclosed in curly braces.",
+    explanation: "In C++, a function definition consists of the return type, function name, parameters (if any), and the function body enclosed in curly braces. The return type specifies the data type of the value that the function returns to the caller. The function name is the identifier used to call the function."
+},
+{
+    question: "What is the purpose of 'nullptr' keyword in C++?",
+    answer: "To represent a null pointer",
+    hint: "It's a keyword introduced in C++11 to represent a null pointer.",
+    explanation: "In C++, the 'nullptr' keyword is used to represent a null pointer. It was introduced in C++11 as a safer alternative to using integer literals like '0' or 'NULL' to represent null pointers. Null pointers are commonly used to indicate that a pointer does not point to a valid object."
+},
+{
+    question: "What is the output of 'cout << (10 != 5);' in C++?",
+    answer: "1",
+    hint: "It's a comparison operation.",
+    explanation: "The expression '(10 != 5)' evaluates to 'true', which is represented as '1' when printed to the console. In C++, the '!=' operator checks if the operands are not equal, and if they're not, it returns 'true' (or '1')."
+},
+{
+    question: "What is the purpose of 'goto' statement in C++?",
+    answer: "To transfer control to a specified label within the same function",
+    hint: "It's considered harmful and should be avoided in most cases.",
+    explanation: "The 'goto' statement in C++ allows transferring control to a specified label within the same function. However, its usage is generally discouraged due to its potential to create spaghetti code and make the program flow difficult to understand and maintain."
+},
+{
+    question: "What is the syntax for declaring a pointer in C++?",
+    answer: "dataType *pointerName;",
+    hint: "It involves the use of '*' symbol to declare a pointer variable.",
+    explanation: "To declare a pointer in C++, you use the '*' symbol followed by the name of the pointer variable. The data type specifies the type of data the pointer points to. For example, 'int *ptr;' declares a pointer variable named 'ptr' that can point to an integer value."
+},{
+question: "What is the purpose of 'static' keyword in C++?",
+answer: "To declare static variables and static member functions",
+hint: "It's used to create variables that persist beyond function calls.",
+explanation: "The 'static' keyword in C++ is used to create variables and member functions that persist beyond the scope of individual function calls. Static variables retain their values between function calls, and static member functions can be called without an instance of the class."
+},
+{
+question: "What is the output of 'cout << (10 < 5 ? 1 : 0);' in C++?",
+answer: "0",
+hint: "It's a ternary conditional operator.",
+explanation: "The expression '(10 < 5 ? 1 : 0)' evaluates to false because 10 is not less than 5. In C++, false is represented by the value 0 when printed to the console. Therefore, the output of the given expression is 0."
+},
+{
+question: "What is the purpose of 'const' keyword in C++?",
+answer: "To declare constants or to specify that an object is not modifiable",
+hint: "It indicates that a variable's value cannot be changed.",
+explanation: "The 'const' keyword in C++ is used to declare constants or to specify that an object's value cannot be modified. When applied to a variable, it indicates that the variable's value remains constant throughout its lifetime. This helps in making programs more readable and maintainable by preventing inadvertent changes to critical values."
+},
+{
+question: "What is the syntax for declaring a reference variable in C++?",
+answer: "dataType &refVar = variableName;",
+hint: "It declares a reference to an existing variable.",
+explanation: "To declare a reference variable in C++, you use the '&' symbol followed by the data type of the referenced variable and the name of the reference variable. References provide an alternative name for an existing variable and are often used as function parameters to avoid unnecessary copying of data."
+},
+{
+question: "What is the result of '10 / 3.0' in C++?",
+answer: "3.33333",
+hint: "It's floating-point division.",
+explanation: "When dividing 10 by 3.0 in C++, the result is 3.33333 because at least one of the operands is a floating-point number (3.0). In floating-point division, the result is a floating-point number, which can represent fractional parts."
+},
+{
+question: "What is the purpose of 'new' operator in C++?",
+answer: "To dynamically allocate memory",
+hint: "It's used to allocate memory on the heap.",
+explanation: "The 'new' operator in C++ is used to dynamically allocate memory during program execution. It allocates memory on the heap, which is managed by the program and remains allocated until explicitly deallocated using the 'delete' operator. Dynamic memory allocation is useful for creating data structures whose size is not known at compile time."
+},
+{
+question: "What is the syntax for a nested if statement in C++?",
+answer: "if (condition1) {\n    if (condition2) {\n        // code block\n    }\n}",
+hint: "It involves placing one 'if' statement inside another.",
+explanation: "In C++, a nested if statement involves placing one 'if' statement inside another. This allows for more complex conditional logic where certain conditions are evaluated only if another condition is true."
+},
+{
+question: "What is the output of 'cout << (10 >= 5);' in C++?",
+answer: "1",
+hint: "It's a comparison operation.",
+explanation: "The expression '(10 >= 5)' evaluates to true because 10 is greater than or equal to 5. In C++, true is represented by the value 1 when printed to the console. Therefore, the output of the given expression is 1."
+},
+{
+question: "What is the purpose of 'sizeof' operator in C++?",
+answer: "To determine the size of a data type or variable",
+hint: "It returns the size in bytes of a data type or variable.",
+explanation: "The 'sizeof' operator in C++ is used to determine the size in bytes of a data type or a variable. It returns the size as a value of type 'size_t', which represents the number of bytes occupied by the specified data type or variable."
+},
+{
+question: "What is the output of 'cout << (5 && 3);' in C++?",
+answer: "1",
+hint: "It's a logical AND operation.",
+explanation: "The expression '(5 && 3)' evaluates to true because both 5 and 3 are non-zero values, and the logical AND operator ('&&') returns true only if both operands are true. In C++, true is represented by the value 1 when printed to the console. Therefore, the output of the given expression is 1."
+},
+{
+question: "What is the purpose of 'try', 'catch', and 'throw' in C++?",
+answer: "To handle exceptions in C++ programs",
+hint: "It's used for exception handling to gracefully manage errors during program execution.",
+explanation: "In C++, 'try', 'catch', and 'throw' are used for exception handling. Code that may throw an exception is placed inside a 'try' block, and any exceptions that occur are caught and handled by corresponding 'catch' blocks. Exceptions are thrown using the 'throw' keyword to indicate errors or exceptional conditions."
+},
+{
+question: "What is the syntax for declaring a variable in C++?",
+answer: "dataType variableName;",
+hint: "It involves specifying the data type followed by the variable name.",
+explanation: "In C++, to declare a variable, you specify the data type of the variable followed by its name. This informs the compiler about the type of data the variable can hold and reserves memory accordingly."
+},
+{
+question: "What does the 'cout' statement do in C++?",
+answer: "It is used to output data to the console.",
+hint: "It is commonly used for displaying messages, variables, or calculations.",
+explanation: "The 'cout' statement in C++ is used to output data to the console. It is commonly used for displaying messages, variables, or the results of calculations to the user."
+},
+{
+question: "What is the purpose of 'cin' in C++?",
+answer: "To accept input from the user.",
+hint: "It is used for reading data from the standard input stream.",
+explanation: "In C++, 'cin' is used to accept input from the user via the standard input stream. It is commonly used in conjunction with the '>>' operator to store user input into variables."
+},
+{
+question: "What does the '++' operator do in C++?",
+answer: "It increments the value of a variable by 1.",
+hint: "It is a unary operator used for incrementing.",
+explanation: "The '++' operator in C++ is used to increment the value of a variable by 1. It can be applied both as a prefix (++variable) and as a postfix (variable++), and it modifies the value of the variable in place."
+},
+{
+question: "What is the syntax for a 'for' loop in C++?",
+answer: "for (initialization; condition; increment/decrement) { // code to be executed }",
+hint: "It typically includes an initialization, condition, and iteration expression.",
+explanation: "In C++, a 'for' loop consists of an initialization step, a loop condition, and an expression for incrementing or decrementing the loop variable. The initialization step is executed once at the beginning, the loop condition is evaluated before each iteration, and the increment/decrement expression is executed after each iteration."
+},
+{
+question: "What is the purpose of 'if' statement in C++?",
+answer: "To perform conditional execution of code.",
+hint: "It allows the program to make decisions based on certain conditions.",
+explanation: "The 'if' statement in C++ is used for conditional execution of code. It allows the program to make decisions based on the evaluation of certain conditions. If the condition specified in the 'if' statement evaluates to true, the code block associated with it is executed."
+},
+{
+question: "What does the 'else' statement do in C++?",
+answer: "It provides an alternative code block to execute if the 'if' condition is false.",
+hint: "It is used for executing code when the 'if' condition evaluates to false.",
+explanation: "The 'else' statement in C++ is used in conjunction with the 'if' statement to provide an alternative code block that executes when the condition specified in the 'if' statement evaluates to false. It allows the program to take different paths based on the outcome of a condition."
+},
+{
+question: "What is the syntax for defining a function in C++?",
+answer: "returnType functionName(parameters) { // function body }",
+hint: "It consists of a return type, function name, parameters, and the function body enclosed in curly braces.",
+explanation: "In C++, a function definition consists of a return type, function name, parameters (if any), and the function body enclosed in curly braces. The return type specifies the type of value the function returns, the function name is used to call the function, and parameters are optional input values passed to the function."
+},
+{
+question: "What is the purpose of 'return' statement in a function in C++?",
+answer: "To specify the value to be returned from the function.",
+hint: "It terminates the function's execution and returns a value to the caller.",
+explanation: "The 'return' statement in C++ is used to exit a function and optionally return a value to the caller. When a 'return' statement is encountered, the function execution stops, and control is returned to the point where the function was called. The optional value returned by 'return' can be used by the caller."
+},
+{
+question: "What does the '&&' operator do in C++?",
+answer: "It performs logical AND operation.",
+hint: "It evaluates to true only if both operands are true.",
+explanation: "The '&&' operator in C++ is used for logical AND operation. It returns true only if both operands are true; otherwise, it returns false. It short-circuits the evaluation, meaning if the left operand is false, the right operand is not evaluated."
+},
+{
+question: "What is the syntax for declaring a constant variable in C++?",
+answer: "const dataType constantName = value;",
+hint: "It uses the 'const' keyword to define a variable whose value cannot be changed.",
+explanation: "In C++, to declare a constant variable, you use the 'const' keyword followed by the data type of the variable, the variable name, and its initial value (if any). Once declared, the value of a constant variable cannot be changed throughout the program."
+},
+{
+question: "What is the purpose of 'while' loop in C++?",
+answer: "To repeatedly execute a block of code as long as a condition is true.",
+hint: "It continues iterating until the condition becomes false.",
+explanation: "The 'while' loop in C++ is used to repeatedly execute a block of code as long as a specified condition is true. The condition is evaluated before each iteration, and if it evaluates to true, the loop body is executed. The loop continues until the condition becomes false."
+},
+{
+question: "What does the '||' operator do in C++?",
+answer: "It performs logical OR operation.",
+hint: "It evaluates to true if at least one operand is true.",
+explanation: "The '||' operator in C++ is used for logical OR operation. It returns true if at least one of the operands is true; otherwise, it returns false. Similar to the '&&' operator, it also short-circuits the evaluation."
+},
+{
+question: "What is the purpose of 'break' statement in C++?",
+answer: "To exit the loop or switch statement prematurely.",
+hint: "It is commonly used to terminate the execution of a loop or switch.",
+explanation: "The 'break' statement in C++ is used to exit from a loop or a switch statement prematurely. When encountered, it terminates the execution of the innermost loop or switch statement it's contained within, and control is transferred to the statement immediately following the loop or switch."
+},{
+question: "What is a 'function prototype' in C++?",
+answer: "A declaration of a function that tells the compiler about the function's name, return type, and parameters.",
+hint: "It is usually placed at the beginning of a program or in a header file.",
+explanation: "A function prototype in C++ declares the function's name, return type, and parameters without providing the function body. It tells the compiler about the existence of the function, allowing it to perform type checking and compilation even if the function is defined later in the program."
+},
+{
+question: "What is the syntax for a 'do-while' loop in C++?",
+answer: "do { // code to be executed } while (condition);",
+hint: "It executes the block of code at least once and then repeatedly as long as the condition is true.",
+explanation: "In C++, the 'do-while' loop executes a block of code at least once and then repeatedly executes it as long as the specified condition is true. The block of code is enclosed within curly braces, and the condition is checked after the block has been executed."
+},
+{
+question: "What is the purpose of 'continue' statement in C++?",
+answer: "To skip the current iteration and continue with the next iteration of the loop.",
+hint: "It is used to bypass certain iterations based on specific conditions.",
+explanation: "The 'continue' statement in C++ is used within loops to skip the remaining code in the current iteration and continue with the next iteration of the loop. It is typically used to bypass certain iterations based on specific conditions without exiting the loop entirely."
+},
+{
+question: "What does the 'switch' statement do in C++?",
+answer: "It evaluates an expression and executes code based on matching cases.",
+hint: "It is used as an alternative to multiple 'if-else' statements.",
+explanation: "The 'switch' statement in C++ evaluates an expression and then executes code based on matching cases. Each 'case' label within the 'switch' block represents a possible value of the expression. If a case matches the value of the expression, the corresponding block of code is executed. The 'default' case is executed if none of the other cases match."
+},
+{
+question: "What is the syntax for declaring an array in C++?",
+answer: "dataType arrayName[arraySize];",
+hint: "It involves specifying the data type followed by the array name and size enclosed in square brackets.",
+explanation: "In C++, to declare an array, you specify the data type of the elements followed by the array name and the size of the array enclosed in square brackets. This syntax tells the compiler to allocate memory for the specified number of elements of the given data type."
+},
+{
+question: "What is the purpose of 'const' keyword in C++?",
+answer: "To declare constants whose values cannot be changed.",
+hint: "It indicates that a variable's value cannot be modified once assigned.",
+explanation: "The 'const' keyword in C++ is used to declare constants or to specify that a variable's value cannot be modified after initialization. It provides read-only access to variables and ensures that their values remain constant throughout the program."
+},
+{
+question: "What does the 'sizeof' operator do in C++?",
+answer: "It returns the size of a variable or data type in bytes.",
+hint: "It is commonly used to determine the memory size occupied by a variable or data type.",
+explanation: "The 'sizeof' operator in C++ returns the size of a variable or data type in bytes. It can be used to determine the amount of memory occupied by variables, arrays, or data types, which is useful for memory management and debugging."
+},
+{
+question: "What is the purpose of 'void' keyword in C++?",
+answer: "To specify that a function does not return any value.",
+hint: "It is used as the return type for functions that do not return a value.",
+explanation: "In C++, the 'void' keyword is used to specify that a function does not return any value. Functions declared with a return type of 'void' do not require a 'return' statement, and they are used for procedures that perform tasks without returning a value."
+},
+{
+question: "What is a 'header file' in C++?",
+answer: "A file containing declarations of functions, classes, and constants.",
+hint: "It is used to provide the compiler with information about the functions and classes used in a program.",
+explanation: "A header file in C++ is a file that contains declarations of functions, classes, constants, and other data types used in a program. It typically has a '.h' extension and is included at the beginning of source code files using the '#include' directive to provide the compiler with information about the program's components."
+},
+{
+question: "What is the syntax for a 'pointer' declaration in C++?",
+answer: "dataType *pointerName;",
+hint: "It involves specifying the data type followed by an asterisk (*) and the pointer name.",
+explanation: "In C++, to declare a pointer, you specify the data type of the pointed-to object followed by an asterisk (*) and the name of the pointer variable. This syntax tells the compiler that the variable stores the memory address of an object of the specified data type."
+},
+{
+question: "What is the purpose of 'nullptr' in C++?",
+answer: "To represent a null pointer.",
+hint: "It is a keyword introduced in C++11 to explicitly specify a null pointer.",
+explanation: "The 'nullptr' keyword in C++ is used to represent a null pointer, which is a pointer that does not point to any memory location. It was introduced in C++11 to provide a type-safe and more expressive alternative to using 'NULL' or '0' to represent null pointers."
+},
+{
+question: "What does the 'new' operator do in C++?",
+answer: "It dynamically allocates memory for an object or data type.",
+hint: "It is used to allocate memory on the heap during runtime.",
+explanation: "The 'new' operator in C++ dynamically allocates memory for an object or data type at runtime. It returns a pointer to the allocated memory, which can then be used to access and manipulate the allocated object. Dynamic memory allocation using 'new' allows for flexible memory management in C++ programs."
+},
+{
+question: "What is the purpose of 'delete' operator in C++?",
+answer: "To deallocate memory previously allocated using 'new'.",
+hint: "It is used to release the memory occupied by dynamically allocated objects.",
+explanation: "The 'delete' operator in C++ is used to deallocate memory that was previously allocated using the 'new' operator. It releases the memory occupied by dynamically allocated objects, allowing it to be reused for other purposes. Proper use of 'delete' is essential to prevent memory leaks in C++ programs."
+},
+{
+question: "What is the syntax for a 'class' definition in C++?",
+answer: "class ClassName { // class members };",
+hint: "It starts with the 'class' keyword followed by the class name and class members enclosed in curly braces.",
+explanation: "In C++, a class definition begins with the 'class' keyword followed by the name of the class and a block of code enclosed in curly braces. Inside the block, you can declare class members such as data members (variables) and member functions (methods) that define the behavior and properties of objects of that class."
+},
+{
+question: "What is the purpose of 'constructor' in C++?",
+answer: "To initialize the object's state.",
+hint: "It is automatically called when an object is created.",
+explanation: "A constructor in C++ is a special member function that is automatically called when an object of a class is created. Its primary purpose is to initialize the object's state, typically by initializing data members or performing other setup tasks. Constructors have the same name as the class and no return type."
+},
+{
+question: "What is the purpose of 'destructor' in C++?",
+answer: "To clean up resources when an object is destroyed.",
+hint: "It is automatically called when an object goes out of scope.",
+explanation: "A destructor in C++ is a special member function that is automatically called when an object of a class is destroyed, typically when it goes out of scope or when 'delete' is called on a dynamically allocated object. Its primary purpose is to release any resources acquired by the object during its lifetime, such as memory or file handles."
+},
+{
+question: "What is the difference between 'struct' and 'class' in C++?",
+answer: "In 'struct', members are public by default, while in 'class', members are private by default.",
+hint: "Both are used to define custom data types, but 'class' is generally used for more complex objects.",
+explanation: "In C++, both 'struct' and 'class' are used to define custom data types, but they have different default access levels for their members. In a 'struct', members are public by default, meaning they can be accessed from outside the struct without restriction. In a 'class', members are private by default, meaning they can only be accessed from within the class."
+},
+{
+question: "What is the syntax for defining a constant pointer in C++?",
+answer: "dataType *const pointerName = &variable;",
+hint: "It involves using the 'const' keyword after the asterisk (*) to specify that the pointer itself is constant.",
+explanation: "In C++, to define a constant pointer, you use the 'const' keyword after the asterisk (*) in the pointer declaration. This specifies that the pointer itself is constant, meaning it cannot be reassigned to point to a different memory location after initialization. However, the value stored at the memory location pointed to by the pointer can still be modified."
+},
+{
+question: "What does the 'static' keyword do in C++?",
+answer: "It specifies that a variable or function is shared among all instances of a class.",
+hint: "It is used to define class-level variables and methods.",
+explanation: "The 'static' keyword in C++ is used to specify that a variable or function belongs to the class rather than to instances of the class. Static variables (also known as class variables) are shared among all instances of the class, while static member functions (also known as class methods) can be called without creating an instance of the class."
+},
+{
+question: "What is the purpose of 'inline' function in C++?",
+answer: "To suggest the compiler to insert the code of the function inline at the point of call.",
+hint: "It is used for small, frequently called functions to reduce function call overhead.",
+explanation: "The 'inline' keyword in C++ is used to suggest the compiler to insert the code of a function inline at the point of call, rather than executing a separate function call. This can improve performance by reducing function call overhead, especially for small and frequently called functions."
+},
+{
+question: "What is a 'namespace' in C++?",
+answer: "A declarative region that provides a scope to the identifiers (names) inside it.",
+hint: "It is used to organize code into logical groups and prevent naming conflicts.",
+explanation: "A namespace in C++ is a declarative region that provides a scope to the identifiers (names) inside it. It is used to organize code into logical groups, prevent naming conflicts, and improve modularity and maintainability. Namespaces are defined using the 'namespace' keyword followed by the namespace name and a block of code enclosed in curly braces."
+},
+{
+question: "What is the syntax for using 'namespace' in C++?",
+answer: "namespace namespaceName { // code declarations };",
+hint: "It starts with the 'namespace' keyword followed by the namespace name and code declarations enclosed in curly braces.",
+explanation: "To use a namespace in C++, you use the 'namespace' keyword followed by the namespace name and a block of code containing declarations. This syntax tells the compiler that the identifiers (names) declared within the namespace belong to that namespace. Namespaces are often used to organize code and prevent naming conflicts in large projects."
+},
+{
+question: "What does the 'this' pointer do in C++?",
+answer: "It points to the current object instance.",
+hint: "It is used to access members of the current object within member functions.",
+explanation: "The 'this' pointer in C++ is a special pointer that points to the current object instance within a member function of a class. It is automatically available within non-static member functions and can be used to access data members and member functions of the current object. The 'this' pointer allows for disambiguation when there is a local variable with the same name as a data member."
+},
+{
+question: "What is the purpose of 'friend' keyword in C++?",
+answer: "To grant access to private and protected members of a class to another class or function.",
+hint: "It allows specified external entities to access private and protected members of a class.",
+explanation: "The 'friend' keyword in C++ is used to grant access to private and protected members of a class to another class or function. When a function or class is declared as a friend of another class, it can access private and protected members of that class as if it were a member of the class itself. This mechanism is often used to implement special relationships or optimizations."
+},
+{
+question: "What is the syntax for using 'friend' keyword in C++?",
+answer: "friend class ClassName;",
+hint: "It is usually placed inside the class definition to declare another class as a friend.",
+explanation: "To declare a class or function as a friend of another class in C++, you use the 'friend' keyword followed by the class or function declaration. This declaration is typically placed inside the class definition to grant access to private and protected members of the class to the specified friend class or function."
+},
+{
+question: "What is the purpose of 'virtual' keyword in C++?",
+answer: "To enable polymorphism and late binding.",
+hint: "It's used in inheritance to allow overridden functions.",
+explanation: "The 'virtual' keyword in C++ is used to enable polymorphism and late binding in inheritance hierarchies. When a function is declared as virtual in a base class, it can be overridden in derived classes, allowing for dynamic dispatch of member function calls based on the runtime type of objects. Virtual functions are essential for implementing runtime polymorphism in C++."
+}
+    ];
+
+        let currentQuestionIndex = 0;
+        let userScore = 0;
+        let answerTimeout;
+
+        const questionElement = document.getElementById("question");
+        const answerElement = document.getElementById("answer");
+        const submitButton = document.getElementById("submitAnswer");
+        const userScoreElement = document.getElementById("userScore");
+        const levelMessageElement = document.getElementById("levelMessage");
+        const hintButton = document.getElementById("getHint");
+        const showAnswerButton = document.getElementById("showAnswer");
+        const explanationButton = document.getElementById("showExplanation");
+
+        function startGame() {
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            questionElement.textContent = questions[currentQuestionIndex].question;
+            answerElement.value = "";
+            levelMessageElement.textContent = "";
+            hintButton.classList.add("hidden");
+            showAnswerButton.classList.add("hidden");
+            explanationButton.classList.add("hidden");
+            clearTimeout(answerTimeout);
+            answerTimeout = setTimeout(() => {
+                displayNextQuestion();
+            }, 20000);
+        }
+
+        function checkAnswer() {
+            clearTimeout(answerTimeout);
+            const userAnswer = answerElement.value.trim().toLowerCase();
+            const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
+            if (userAnswer === correctAnswer) {
+                userScore++;
+                userScoreElement.textContent = userScore;
+                if (userScore === 100) {
+                    levelMessageElement.textContent = " M.Bilal Say's Congratulations! You reached 10 points. Starting next level...";
+                    setTimeout(startNextLevel, 2000);
+                } else {
+                    setTimeout(displayNextQuestion, 1000);
+                }
+            } else {
+                if (userAnswer === "") {
+                    alert("M.Bilal say's Please enter your answer.");
+                    return;
+                }
+                hintButton.classList.remove("hidden");
+                showAnswerButton.classList.remove("hidden");
+            }
+        }
+
+        function getHint() {
+            const hint = questions[currentQuestionIndex].hint;
+            alert("Hint: " + hint);
+        }
+
+        function showAnswer() {
+            const answer = questions[currentQuestionIndex].answer;
+            alert("Answer: " + answer);
+            explanationButton.classList.remove("hidden");
+        }
+
+        function showExplanation() {
+            const explanation = questions[currentQuestionIndex].explanation;
+            alert("Explanation: " + explanation);
+        }
+
+        function displayNextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+            } else {
+                levelMessageElement.textContent = "M.Bilal say's  Congratulations! You have completed all questions.";
+            }
+        }
+
+        function startNextLevel() {
+            userScore = 0;
+            userScoreElement.textContent = userScore;
+            currentQuestionIndex = 0;
+            displayQuestion();
+        }
+
+        submitButton.addEventListener("click", checkAnswer);
+        hintButton.addEventListener("click", getHint);
+        showAnswerButton.addEventListener("click", showAnswer);
+        explanationButton.addEventListener("click", showExplanation);
+
+   
+     
+    </script>
+</body>
+</html>
