@@ -8,7 +8,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     // Here you can add code to send the form data to your server
     // For example, you can use fetch API to send data to a backend script
 
-    alert('Muhammad Bilal says' + 'Thank you ' + name + '! Your message has been sent.');
+    alert('Muhammad Bilal says' +' ' + 'Thank you ' +'   '+ name +'   '+'! Your message has been sent.');
       
     // Reset the form
     document.getElementById('contact-form').reset();
