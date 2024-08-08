@@ -7,28 +7,8 @@
     <link rel="stylesheet" href="contact.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
 
-    $to = "your-email@example.com";  // Apna email address yahan likhein
-    $subject = "New Contact Form Submission";
-    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
-    $headers = "From: $email";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "<p>Message sent successfully!</p>";
-    } else {
-        echo "<p>Failed to send message.</p>";
-    }
-}
-?>
 <body>
-
-
-
       <nav class="navbar">
             <div class="logo">
                 <a href="index.html"><img src="logo.png" alt="Logo"></a>
