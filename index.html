@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="skill.css">
     <link rel="stylesheet" href="experiance.css">
     <link rel="stylesheet" href="mission.css">
+    <link rel="stylesheet" href="signup.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>ALONE_CODER</title>
 </head>
@@ -39,6 +40,7 @@
                 <li><a href="javascript.html">J/S </a></li>
                 <li><a href="sql.html">SQL</a></li>
                 <li><a href="game.html">Programming Games</a></li>
+                <li><a href="#signupModal">SignUp</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -56,6 +58,7 @@
                     <li><a href="javascript.html">J/S </a></li>
                     <li><a href="sql.html">SQL</a></li>
                     <li><a href="game.html">Programming Games</a></li>
+                    <li><a href="#signupModal">SignUp</a></li>   
                 </ul>
             </div>
         </nav>
@@ -503,11 +506,55 @@
         </div>
     </footer>
 
+<!--         signup page  -->
+
+
+
+        
+         <center style="margin: auto;">
+
+
+           <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm" method="POST">
+                <div class="form-group">
+                    <label for="username"><p class="n">Username:</p></label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><p  class="n" >Email:</p></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><p  class="n" >Password:</p></label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password"><p  class="n" >Confirm Password:</p></label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="n">Already have an account? <a href="login.html"><p  class="n"  >Log in</p></a></p>
+        </div>
+    </div>
+         
+         
+         
+         </center>
+
+
+        
+
 
      </div>  <!-- this is a content div -->
    
       
 </body>
 <script src="script.js"></script>
+<script src="signup.js"></script>
+<script src="login.js"></script>
 </html>
 
