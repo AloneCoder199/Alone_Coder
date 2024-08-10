@@ -1,5 +1,12 @@
-
-
+let a=prompt("Welcome Sir, Please Enter your name , If you dont mind");
+if(a){
+ alreat("M.Bilal say's ,"  + a +  " Welcome To The Alone_Coder !");
+}
+else
+{
+ alreat("M.Bilal say's , Not Problem Sir as You Wish !");
+ 
+}
  const texts = ["Learn Programming !", "Learn Html !", "Learn Css", "Learn c++ Programming","Learn C Programming","Learn Java Script","Learn c# Programming","Play Coding Games" , "With M.Bilal"];
 const typingTextElement = document.getElementById("typing-text");
 let textIndex = 0;
